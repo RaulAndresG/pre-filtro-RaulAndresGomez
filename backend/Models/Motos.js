@@ -1,13 +1,7 @@
-const { Schema, model } = require('mongoose');
+const mongoose = require('mongoose');
 
-const MotosSchema = Schema(
+const MotosSchema = new mongoose.Schema(
   {
-    _id: {
-      $oid: {
-        type: String,
-        required: true,
-      },
-    },
     marca: {
       type: String,
       required: [true, 'Marca is required'],
@@ -44,6 +38,6 @@ const MotosSchema = Schema(
   }
 );
 
-const Motos = model('Motos', MotosSchema, 'Motos');
+const Motos = mongoose.model('Motos', MotosSchema, 'Motos');
 
 module.exports = Motos;

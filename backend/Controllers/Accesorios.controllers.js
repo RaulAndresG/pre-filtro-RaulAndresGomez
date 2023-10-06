@@ -1,10 +1,11 @@
 const Accesorios = require('../Models/Accesorios.js');
+
 const bcryptjs = require ('bcryptjs');
 
 
 const postAccesorios = async (req, res) => {
-  const { nombre, descripcion, precio, marca, categoria } = req.body;
-  const accesorio = new Accesorios({ nombre, descripcion, precio, marca, categoria });
+  const { nombre, descripcion, precio, marca } = req.body;
+  const accesorio = new Accesorios({ nombre, descripcion, precio, marca });
 
   // Guardar en MONGODB
   await accesorio.save();
@@ -57,7 +58,8 @@ const obtenerTodos = async (req, res) => {
     const accesorios = await Accesorios.find().limit(100); 
     res.json(accesorios);
   } catch (error) {
-    res.status(500).json({ error: "Error en obtenerTodos" });
+console.error('Error en obtenerTodos:', error);
+res.status(500).json({ error: 'Error en obtenerTodos' });
   }
 }
 

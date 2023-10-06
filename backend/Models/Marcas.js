@@ -1,6 +1,6 @@
-const { Schema, model } = require('mongoose');
+const mongoose = require('mongoose');
 
-const MarcasSchema = Schema({
+const MarcasSchema = new mongoose.Schema({
   nombre: {
     type: String,
     required: true,
@@ -25,8 +25,10 @@ const MarcasSchema = Schema({
     required: true,
     trim: true
   }
+}, {
+  timestamps: true,
 });
 
-const Marcas = model('Marcas', MarcasSchema, 'Marcas');
+const Marcas = mongoose.model('Marcas', MarcasSchema, 'Marcas');
 
 module.exports = Marcas;

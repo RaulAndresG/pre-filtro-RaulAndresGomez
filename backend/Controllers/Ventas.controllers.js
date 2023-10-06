@@ -1,67 +1,68 @@
-const Usuarios = require('../Models/Usuarios.js')
-const bcryptjs = require ('bcryptjs');
+const Ventas = require('../Models/Ventas.js');
 
+const postVentas = async (req, res) => {
+  const { modelo_moto, anio_venta, cantidad_vendida, precio_promedio_venta } = req.body;
 
+  try {
+    const venta = new Ventas({ modelo_moto, anio_venta, cantidad_vendida, precio_promedio_venta });
+    await venta.save();
 
-const postUsuarios = async (req, res)=>{
-
-    const {nombre, email, password} = req.body;
-    const usuario = new Usuarios({nombre, email, password});
-    const salt = bcryptjs.genSaltSync();
-    usuario.password = bcryptjs.hashSync(password, salt);
-    await usuario.save();
     res.json({
-        "message":"post api",
-        usuario
-    })
-}
-
-
-const changeUsuarios = async (req, res)=>{
-    const {id} = req.params
-    const usuario = await Usuarios.findByIdAndUpdate( id, { estado: false } );
-    res.json(usuario)
-}
-
-const deleteUsuarios = async (req, res) => {
-    const { id } = req.params;
-  
-    try {
-      const usuario = await Usuarios.findByIdAndRemove(id);
-  
-      if (!usuario) {
-        return res.status(404).json({ message: 'Usuario no encontrado' });
-      }
-  
-      res.json({ message: 'Usuario eliminado correctamente' });
-    } catch (error) {
-      console.error('Error al eliminar usuario:', error);
-      res.status(500).json({ error: 'Error al eliminar usuario.' });
-    }
-  };
-  
-
-const obtenerUsuarios = async(req,res) =>{
-    try {
-        const result = await Usuarios.find().limit(100)
-        res.json(result)
-    } catch (error) {
-        res.status(404).json('nocapto')
-    }
-}
-
-const putUsuarios = async (req, res)=>{
-      const { id } = req.params;
-      const { _id, password, googleSignIn, ...resto } = req.body;
-      if ( password ) {
-          const salt = bcryptjs.genSaltSync();
-          resto.password = bcryptjs.hashSync( password, salt );
-      }
-      const usuario = await Usuarios.findByIdAndUpdate( id, resto, {new:true});
-      res.json({
-          msg:"Usuario Actualizado",
-          usuario : usuario
-      });
+      message: 'Venta registrada con éxito',
+      venta,
+    });
+  } catch (error) {
+    console.error('Error al crear la venta:', error);
+    res.status(500).json({ error: 'Error al crear la venta' });
   }
+};
 
-module.exports = {obtenerUsuarios,postUsuarios,deleteUsuarios,changeUsuarios,putUsuarios}
+const obtenerVentas = async (req, res) => {
+  try {
+    const ventas = await Ventas.find().limit(100);
+    res.json(ventas);
+  } catch (error) {
+    console.error('Error al obtener las ventas:', error);
+    res.status(500).json({ error: 'Error al obtener las ventas' });
+  }
+};
+
+const putVentas = async (req, res) => {
+  const { id } = req.params;
+  const { modelo_moto, anio_venta, cantidad_vendida, precio_promedio_venta } = req.body;
+
+  try {
+    const venta = await Ventas.findByIdAndUpdate(id, { modelo_moto, anio_venta, cantidad_vendida, precio_promedio_venta }, { new: true });
+
+    if (!venta) {
+      return res.status(404).json({ message: 'Venta no encontrada' });
+    }
+
+    res.json({
+      message: 'Venta actualizada correctamente',
+      venta,
+    });
+  } catch (error) {
+    console.error('Error al actualizar la venta:', error);
+    res.status(500).json({ error: 'Error al actualizar la venta' });
+  }
+};
+
+const deleteVentas = async (req, res) => {
+  const { id } = req.params;
+
+  try {
+    const venta = await Ventas.findByIdAndRemove(id);
+
+    if (!venta) {
+      return res.status(404).json({ message: 'Venta no encontrada' });
+    }
+
+    res.json({ message: 'Venta eliminada correctamente' });
+  } catch (error) {
+    console.error('Error al eliminar la venta:', error);
+    res.status(500).json({ error: 'Error al eliminar la venta' });
+  }
+};
+
+module.exports = { postVentas, obtenerVentas, putVentas, deleteVentas };

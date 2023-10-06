@@ -1,14 +1,14 @@
 const express = require('express');
 const router = express.Router();
-const {obtenerInventario, deleteInventario,postInventario,putInventario} = require('../Controllers/Eventos.controllers.js')
+const {obtenerEventos, deleteEventos,postEventos,putEventos} = require('../Controllers/Eventos.controllers.js')
 
-router.get('/', obtenerInventario)
+router.get('/', obtenerEventos)
 
-router.delete('/:id', deleteInventario)
+router.delete('/:id', deleteEventos)
 
-router.post('/', postInventario)
+router.post('/', postEventos)
 
-router.put('/:id', putInventario)
+router.put('/:id', putEventos)
 
 
 module.exports = router

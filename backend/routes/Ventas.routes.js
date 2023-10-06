@@ -1,15 +1,14 @@
 const express = require('express');
 const router = express.Router();
-const {obtenerUsuarios,postUsuarios,deleteUsuarios,putUsuarios,changeUsuarios} = require('../Controllers/Ventas.controllers')
+const {obtenerVentas,postVentas,deleteVentas,putVentas} = require('../Controllers/Ventas.controllers')
 
-router.get('/',obtenerUsuarios)
+router.get('/',obtenerVentas)
 
-router.post('/',postUsuarios)
+router.post('/',postVentas)
 
-router.delete('/:id',deleteUsuarios)
+router.delete('/:id',deleteVentas)
 
-router.put('/:id',putUsuarios)
+router.put('/:id',putVentas)
 
-router.delete('/change/:id',changeUsuarios)
 
 module.exports = router

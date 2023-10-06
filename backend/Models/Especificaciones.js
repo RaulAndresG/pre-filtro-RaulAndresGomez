@@ -1,10 +1,7 @@
-const { Schema, model } = require('mongoose');
+const mongoose = require('mongoose');
 
-const motoSchema = Schema({
-    _id: {
-      type: Schema.Types.ObjectId,
-      required: true,
-    },
+const motoSchema = new mongoose.Schema({
+ 
     marca: {
       type: String,
       required: true,
@@ -41,7 +38,7 @@ const motoSchema = Schema({
     comentarios: [String],
   });
 
-const especificacionesMotoSchema = Schema({
+const especificacionesMotoSchema = new mongoose.Schema({
   potencia: {
     type: Number,
     required: true,
@@ -50,35 +47,35 @@ const especificacionesMotoSchema = Schema({
     type: Number,
     required: true,
   },
-  pesoSeco: {
+  peso_seco: {
     type: Number,
     required: true,
   },
-  alturaAsiento: {
+  altura_asiento: {
     type: Number,
     required: true,
   },
-  tipoChasis: {
+  tipo_chasis: {
     type: String,
     required: true,
     trim: true,
   },
-  suspensionDelantera: {
+  suspension_delantera: {
     type: String,
     required: true,
     trim: true,
   },
-  suspensionTrasera: {
+  suspension_trasera: {
     type: String,
     required: true,
     trim: true,
   },
-  frenosDelanteros: {
+  frenos_delanteros: {
     type: String,
     required: true,
     trim: true,
   },
-  frenosTraseros: {
+  frenos_traseros: {
     type: String,
     required: true,
     trim: true,
@@ -88,22 +85,24 @@ const especificacionesMotoSchema = Schema({
     required: true,
     trim: true,
   },
-  capacidadTanque: {
+  capacidad_tanque: {
     type: Number,
     required: true,
   },
-  aceleracion0a100: {
+  aceleracion_0a_100: {
     type: Number,
     required: true,
   },
+  modelo_moto: [motoSchema],
+}, {
+  timestamps: true,
 });
 
-const especificacionesSchema = Schema({
-  modeloMotoCompatible: [motoSchema],
-  especificacionesMoto: especificacionesMotoSchema,
-});
+
+
+
 
 // Modelo para Especificaciones
-const Especificaciones = model('Especificaciones', especificacionesSchema, "Especificaciones");
+const Especificaciones = mongoose.model('Especificaciones', especificacionesMotoSchema, 'Especificaciones');
 
-module.exports = { Especificaciones };
+module.exports = Especificaciones;

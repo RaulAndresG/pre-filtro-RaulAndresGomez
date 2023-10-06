@@ -17,17 +17,25 @@ const postComentario = async (req, res) => {
 
 const putComentario = async (req, res) => {
     const { id } = req.params;
-    const { modelo_moto, usuario, comentario, calificacion } = req.body;
+  
+    const { _id, ...resto } = req.body;
+  
     try {
-        const comentario = await Comentario.findByIdAndUpdate(id, { modelo_moto, usuario, comentario, calificacion }, { new: true });
-        res.json({
-            msg: "Comentario Actualizado",
-            comentario: comentario
-        });
+      const comentario = await Comentario.findByIdAndUpdate(id, resto, { new: true });
+  
+      if (!comentario) {
+        return res.status(404).json({ message: "Comentario no encontrado" });
+      }
+  
+      res.json({
+        msg: "Comentario actualizado exitosamente",
+        comentario // Cambia 'accesorio' a 'comentario'
+      });
     } catch (error) {
-        res.status(500).json({ error: "Error al actualizar el comentario" });
+      res.status(500).json({ error: "Error en putComentario" });
     }
 }
+
 
 const deleteComentario = async (req, res) => {
     const { id } = req.params;

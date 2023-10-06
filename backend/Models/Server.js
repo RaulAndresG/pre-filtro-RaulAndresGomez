@@ -1,7 +1,10 @@
 
 
 const express = require("express");
+const bodyParser = require('body-parser');
 const cors = require("cors");
+
+
 
 const routeAccesorios = require("../routes/Accesorios.routes.js")
 const routeComentarios = require("../routes/Comentarios.routes.js")
@@ -49,6 +52,9 @@ class Server{
 
         //! EXPRESS JSON
         this.app.use(express.json());
+
+        this.app.use(bodyParser.json());
+        this.app.use(bodyParser.urlencoded({ extended: false }));
 
     }
 

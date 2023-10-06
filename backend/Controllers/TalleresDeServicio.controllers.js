@@ -1,4 +1,4 @@
-const TallerServicio = require('../Models/TallerServicio.js');
+const TallerServicio = require('../Models/TalleresDeServicio.js');
 
 // Controladores para talleres de servicio
 const postTallerServicio = async (req, res) => {

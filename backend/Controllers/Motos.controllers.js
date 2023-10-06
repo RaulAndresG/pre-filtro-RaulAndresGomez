@@ -1,5 +1,4 @@
 const Motos = require('../Models/Motos.js');
-const bcryptjs = require('bcryptjs');
 
 const postMotos = async (req, res) => {
   const { marca, modelo, cilindraje, anio, precio, tipo_motor, descripcion, imagenes, comentarios } = req.body;

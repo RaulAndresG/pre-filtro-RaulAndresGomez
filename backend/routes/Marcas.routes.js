@@ -1,13 +1,13 @@
 const express = require('express')
 const router = express.Router()
-const {obtenerProyecto, postProyectos, deleteProyecto,putUsuarios} = require('../Controllers/Marcas.controllers.js')
+const {obtenerMarcas, postMarcas, deleteMarca,putMarcas} = require('../Controllers/Marcas.controllers.js')
 
-router.get('/', obtenerProyecto)
+router.get('/', obtenerMarcas)
 
-router.post('/', postProyectos)
+router.post('/', postMarcas)
 
-router.delete('/:id', deleteProyecto)
+router.delete('/:id', deleteMarca)
 
-router.put('/:id', putUsuarios)
+router.put('/:id', putMarcas)
 
 module.exports = router

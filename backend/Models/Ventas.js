@@ -1,6 +1,6 @@
-const { Schema, model } = require('mongoose');
+const mongoose = require('mongoose');
 
-const ModeloMotoSchema = new Schema({
+const ModeloMotoSchema = new mongoose.Schema({
   marca: {
     type: String,
     required: true,
@@ -33,14 +33,9 @@ const ModeloMotoSchema = new Schema({
   comentarios: [String],
 });
 
-const ModeloMoto = model('ModeloMoto', ModeloMotoSchema);
 
-const VentasSchema = new Schema({
-  modelo_moto: {
-    type: Schema.Types.ObjectId,
-    ref: 'ModeloMoto',
-    required: true,
-  },
+const VentasSchema =  new mongoose.Schema({
+  modelo_moto: [ModeloMotoSchema],
   anio_venta: {
     type: Number,
     required: true,
@@ -55,6 +50,6 @@ const VentasSchema = new Schema({
   },
 });
 
-const Ventas = model('Ventas', VentasSchema , 'Ventas');
+const Ventas = mongoose.model('Ventas', VentasSchema , 'Ventas');
 
-module.exports = { ModeloMoto, Ventas };
+module.exports = Ventas ;

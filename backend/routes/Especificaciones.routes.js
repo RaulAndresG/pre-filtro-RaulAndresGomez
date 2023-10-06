@@ -1,14 +1,14 @@
 const express = require('express')
 const router = express.Router()
-const {obtenerEmpresas,deleteEmpresa,postEmpresas,putEmpresas} = require('../Controllers/Especificaciones.controllers.js')
+const {obtenerEspecificaciones,deleteEspecificaciones,postEspecificaciones,putEspecificaciones} = require('../Controllers/Especificaciones.controllers.js')
 
-router.get('/', obtenerEmpresas)
+router.get('/', obtenerEspecificaciones)
 
-router.delete('/:id',deleteEmpresa)
+router.delete('/:id',deleteEspecificaciones)
 
-router.post('/',postEmpresas)
+router.post('/',postEspecificaciones)
 
-router.put('/:id',putEmpresas)
+router.put('/:id',putEspecificaciones)
 
 
 module.exports = router

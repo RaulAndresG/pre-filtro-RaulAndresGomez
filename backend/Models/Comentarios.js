@@ -1,10 +1,7 @@
-const { Schema, model } = require('mongoose');
+const mongoose = require('mongoose');
 
-const motoSchema = Schema({
-  _id: {
-    type: Schema.Types.ObjectId,
-    required: true,
-  },
+
+const motoSchema =   new mongoose.Schema({
   marca: {
     type: String,
     required: true,
@@ -41,12 +38,8 @@ const motoSchema = Schema({
   comentarios: [String],
 });
 
-const comentarioSchema = Schema({
-  _id: {
-    type: Schema.Types.ObjectId,
-    required: true,
-  },
-  modelo_moto: motoSchema,
+const comentarioSchema =   new mongoose.Schema({
+
   usuario: {
     type: String,
     required: true,
@@ -61,9 +54,12 @@ const comentarioSchema = Schema({
     type: Number,
     required: true,
   },
+  modelo_moto:[motoSchema],
+}, {
+  timestamps: true,
 });
 
 // Modelo para Comentario
-const Comentario = model('Comentario', comentarioSchema, "Comentarios");
+const Comentario = mongoose.model('Comentarios', comentarioSchema, 'Comentarios');
 
-module.exports = { Comentario };
+module.exports =  Comentario;

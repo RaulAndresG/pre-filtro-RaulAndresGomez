@@ -1,15 +1,14 @@
 const express = require('express');
 const router = express.Router();
-const {obtenerUsuarios,postUsuarios,deleteUsuarios,putUsuarios,changeUsuarios} = require('../Controllers/TalleresDeServicio.controllers.js')
+const {obtenerTalleresServicio,postTallerServicio,deleteTallerServicio,putTallerServicio} = require('../Controllers/TalleresDeServicio.controllers.js')
 
-router.get('/',obtenerUsuarios)
+router.get('/',obtenerTalleresServicio)
 
-router.post('/',postUsuarios)
+router.post('/',postTallerServicio)
 
-router.delete('/:id',deleteUsuarios)
+router.delete('/:id',deleteTallerServicio)
 
-router.put('/:id',putUsuarios)
+router.put('/:id',putTallerServicio)
 
-router.delete('/change/:id',changeUsuarios)
 
 module.exports = router

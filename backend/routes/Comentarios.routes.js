@@ -1,13 +1,13 @@
 const express = require('express')
 const router = express.Router()
-const {obtenerEmpleados,deleteEmpleado,postEmpleado,putEmpleados}  = require('../Controllers/Comentarios.controllers.js')
+const {obtenerComentarios,deleteComentario,postComentario,putComentario}  = require('../Controllers/Comentarios.controllers.js')
 
-router.get('/', obtenerEmpleados)
+router.get('/', obtenerComentarios)
 
-router.delete('/:id',deleteEmpleado)
+router.delete('/:id',deleteComentario)
 
-router.post('/',postEmpleado)
+router.post('/',postComentario)
 
-router.put('/:id',putEmpleados)
+router.put('/:id',putComentario)
 
 module.exports = router

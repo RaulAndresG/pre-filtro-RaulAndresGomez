@@ -3,11 +3,7 @@ const Especificaciones = require('../Models/Especificaciones.js');
 // Crear nuevas especificaciones
 const postEspecificaciones = async (req, res) => {
   try {
-    const {
-      modelo_moto,
-      potencia,
-      torque,
-      peso_seco,
+    const {modelo_moto,potencia, torque, peso_seco,
       altura_asiento,
       tipo_chasis,
       suspension_delantera,

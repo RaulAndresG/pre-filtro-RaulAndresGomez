@@ -1,6 +1,7 @@
-const { Schema, model } = require('mongoose');
+const mongoose = require('mongoose');
 
-const TalleresDeServicioSchema = Schema({
+
+const TalleresDeServicioSchema = new mongoose.Schema({
   nombre: {
     type: String,
     required: true,
@@ -26,8 +27,11 @@ const TalleresDeServicioSchema = Schema({
     required: true,
     trim: true,
   },
-});
+  
+}, {
+    timestamps: true,
+  });
 
-const TalleresDeServicio = model('TalleresDeServicio', TalleresDeServicioSchema, 'TalleresDeServicio');
+const TalleresDeServicio =  mongoose.model('TalleresDeServicio', TalleresDeServicioSchema, 'TalleresDeServicio');
 
 module.exports = TalleresDeServicio;
