@@ -1,0 +1,207 @@
+Accesorios
+///
+{
+  "_id": {
+    "$oid": "65132382ec6a0291cb8ab725"
+  },
+  "nombre": "ejkshij si",
+  "descripcion": "Guantes de alto osjbigjbij para un agarre óptimo.",
+  "precio": {
+    "$date": "1970-01-01T00:00:00.080Z"
+  },
+  "modelo_moto_compatible": [
+    {
+      "marca": "oufhi",
+      "modelo": "gdgbdfb 821",
+      "cilindraje": 821,
+      "anio": 2021,
+      "precio": 14000,
+      "tipo_motor": "L-Twin",
+      "descripcion": "Una moto naked deportiva con estilo italiano.",
+      "imagenes": [
+        "monster_821_1.jpg",
+        "monster_821_2.jpg"
+      ],
+      "comentarios": [],
+      "_id": {
+        "$oid": "651f46765cf19ba72d4e6408"
+      }
+    },
+    {
+      "marca": "BMW",
+      "modelo": "R 1250 GS",
+      "cilindraje": 1254,
+      "anio": 2021,
+      "precio": 22000,
+      "tipo_motor": "Boxer",
+      "descripcion": "Una moto de aventura con tecnología avanzada.",
+      "imagenes": [
+        "r_1250_gs_1.jpg",
+        "r_1250_gs_2.jpg"
+      ],
+      "comentarios": [],
+      "_id": {
+        "$oid": "651f46765cf19ba72d4e6409"
+      }
+    }
+  ],
+  "updatedAt": {
+    "$date": "2023-10-05T23:27:50.232Z"
+  }
+}
+
+Comentarios
+/////
+
+{
+  "_id": {
+    "$oid": "65132255ec6a0291cb8ab71a"
+  },
+  "modelo_moto": {
+    "_id": {
+      "$oid": "65130ee5ec6a0291cb8ab6ef"
+    },
+    "marca": "Ducati",
+    "modelo": "Monster 821",
+    "cilindraje": 821,
+    "anio": 2021,
+    "precio": 14000,
+    "tipo_motor": "L-Twin",
+    "descripcion": "Una moto naked deportiva con estilo italiano.",
+    "imagenes": [
+      "monster_821_1.jpg",
+      "monster_821_2.jpg"
+    ],
+    "comentarios": []
+  },
+  "usuario": "usuario2",
+  "comentario": "La Monster 821 es una bestia en la carretera. ¡Me encanta!",
+  "calificacion": 4
+}
+
+Especificaciones
+/////
+
+{
+  "_id": {
+    "$oid": "65131c22ec6a0291cb8ab705"
+  },
+  "modelo_moto": null,
+  "potencia": 92,
+  "torque": 160,
+  "peso_seco": 372,
+  "altura_asiento": 69,
+  "tipo_chasis": "Doble cuna de acero",
+  "suspension_delantera": "Horquillas telescópicas",
+  "suspension_trasera": "Amortiguadores",
+  "frenos_delanteros": "Doble disco",
+  "frenos_traseros": "Disco",
+  "neumaticos": "Michelin Scorcher 31",
+  "capacidad_tanque": 22.7,
+  "aceleracion_0_100": 4.3
+}
+
+Eventos
+/////
+
+{
+  "_id": {
+    "$oid": "6513253eec6a0291cb8ab73d"
+  },
+  "nombre": "ExpoMoto 2023",
+  "fecha_lugar": "15-20 de junio de 2023, Centro de Convenciones MotoCity",
+  "descripcion": "La ExpoMoto 2023 es el evento más grande para entusiastas de las motos. Presentará las últimas novedades en el mundo de las motocicletas de alto cilindraje.",
+  "marcas_modelos_destacados": [
+    "Harley-Davidson",
+    "Ducati",
+    "Kawasaki",
+    "BMW"
+  ]
+}
+
+
+Marcas
+//////////7
+
+{
+  "_id": {
+    "$oid": "65131051ec6a0291cb8ab6f9"
+  },
+  "nombre": "Ducati",
+  "pais_origen": "Italia",
+  "anio_fundacion": 1926,
+  "sitio_web": "https://www.ducati.com",
+  "logotipo": "ducati_logo.jpg"
+}
+
+Motos
+
+////
+{
+  "_id": {
+    "$oid": "65130ee5ec6a0291cb8ab6f6"
+  },
+  "marca": "KTM",
+  "modelo": "1290 Super Duke R",
+  "cilindraje": 1301,
+  "anio": 2021,
+  "precio": 19500,
+  "tipo_motor": "V-Twin",
+  "descripcion": "Una moto naked con rendimiento extremo.",
+  "imagenes": [
+    "super_duke_r_1.jpg",
+    "super_duke_r_2.jpg"
+  ],
+  "comentarios": []
+}
+
+
+TalleresDeServicio
+
+//////////////////////
+
+{
+  "_id": {
+    "$oid": "65132439ec6a0291cb8ab731"
+  },
+  "nombre": "MotoFix Service Center",
+  "marca_moto_atienden": [
+    "BMW",
+    "KTM"
+  ],
+  "direccion": "Calle de los Moteros, Villa Moto, Estado",
+  "numero_telefono": "+789-456-0123",
+  "horario_atencion": "Lunes a Sábado: 8:30 AM - 6:00 PM, Domingo: Cerrado"
+}
+
+Ventas
+//////
+
+{
+  "_id": {
+    "$oid": "65132079ec6a0291cb8ab710"
+  },>
+  "modelo_moto": {
+    "_id": {
+      "$oid": "65130ee5ec6a0291cb8ab6ef"
+    },
+    "marca": "Ducati",
+    "modelo": "Monster 821",
+    "cilindraje": 821,
+    "anio": 2021,
+    "precio": 14000,
+    "tipo_motor": "L-Twin",
+    "descripcion": "Una moto naked deportiva con estilo italiano.",
+    "imagenes": [
+      "monster_821_1.jpg",
+      "monster_821_2.jpg"
+    ],
+    "comentarios": []
+  },
+  "anio_venta": 2022,
+  "cantidad_vendida": 30,
+  "precio_promedio_venta": 14000
+}
+
+
+

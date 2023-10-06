@@ -1,0 +1,106 @@
+/* Estilos para la barra de navegación */
+.nav {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 60px;
+    background-color: #3498db;
+  }
+  
+  /* Estilos para los enlaces de navegación */
+  .a {
+    text-decoration: none;
+    color: white;
+    background-color: #3498db;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 18px;
+    margin: 0 10px;
+  }
+  
+  /* Estilos para la imagen en la barra de navegación */
+  .imagen {
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+  }
+  
+  /* Estilos para el encabezado principal */
+  h1 {
+    color: #3498db;
+    font-size: 25px;
+  }
+  
+  /* Estilos para los enlaces al pasar el mouse */
+  .a:hover {
+    background-color: #2980b9;
+    transition: background-color 0.5s;
+  }
+  
+  /* Estilos para las tablas */
+  .Table {
+    margin: 20px auto;
+    max-width: 800px;
+    background-color: #ecf0f1;
+    border-radius: 10px;
+  }
+  
+  /* Estilos para celdas de la tabla */
+  .casilla {
+    text-align: center;
+    background-color: #ecf0f1;
+    padding: 10px;
+  }
+  
+  /* Estilos para los botones */
+  .boton {
+    background-color: #3498db;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  /* Estilos para encabezados pequeños */
+  .small-header {
+    font-size: 20px;
+    background-color: #3498db;
+    color: white;
+    padding: 10px;
+    text-align: center;
+    border-radius: 5px;
+    margin-top: 20px;
+  }
+  
+  /* Estilos para otras tablas y celdas */
+  .Table1,
+  .Table2,
+  .Table3 {
+    margin: 20px auto;
+    max-width: 800px;
+    background-color: #ecf0f1;
+    border-radius: 10px;
+  }
+  
+  .casilla1,
+  .casilla2,
+  .casilla3 {
+    text-align: center;
+    background-color: #ecf0f1;
+    padding: 10px;
+  }
+  
+  /* Estilos para botones adicionales */
+  .boton1,
+  .boton2,
+  .boton3 {
+    background-color: #3498db;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-left: 20px;
+  }
+  
