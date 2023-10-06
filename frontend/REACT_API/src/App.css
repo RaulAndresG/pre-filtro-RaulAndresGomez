@@ -6,8 +6,8 @@
   text-align: center;
   border-radius: 50px;
   width: 200px;
-  background-color: #c5c6c7; /* Color de fondo azul */
-  color: white; /* Texto en color blanco */
+  background-color: #c5c6c767; /* Color de fondo azul */
+  color: rgba(255, 255, 255, 0.205); /* Texto en color blanco */
   font-size: 20px;
   margin: 0 auto; /* Centra horizontalmente el título */
   margin-bottom: 20px;
@@ -16,9 +16,9 @@
 
 /* Estilos para el contenedor principal */
 .main {
-  background-image: url('./css/fondo.png');
+  background-image: url('./css/1190133.jpg');
   background-repeat: no-repeat;
-  background-color: #ffffff;
+  background-color: #ffffff5e;
   margin: 0;
   padding: 0;
   background-size: cover;
@@ -35,7 +35,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #f6fcff; /* Color de fondo azul */
+  background-color: #f6fcff5d; /* Color de fondo azul */
   height: 60px;
 }
 
@@ -44,7 +44,7 @@
   display: flex;
   justify-content: space-around;
   align-items: center;
-  background-color: #f39c12; /* Color de fondo naranja */
+  background-color: #5a626b9d; /* Color de fondo naranja */
   padding: 10px;
   border-radius: 10px;
   width: 100%;
@@ -54,7 +54,7 @@
 /* Estilos para los botones de la barra de navegación */
 .nav1 .a {
   text-decoration: none;
-  color: white; /* Texto en color blanco */
+  color: rgba(221, 208, 208, 0.185); /* Texto en color blanco */
   padding: 10px 20px;
   border-radius: 5px;
   font-size: 18px;
@@ -64,5 +64,6 @@
 
 /* Estilos para los botones de la barra de navegación al pasar el mouse */
 .nav1 .a:hover {
-  background-color: #2980b9; /* Color de fondo azul más oscuro */
+  background-color: #7a88918a; /* Color de fondo azul más oscuro */
 }
+

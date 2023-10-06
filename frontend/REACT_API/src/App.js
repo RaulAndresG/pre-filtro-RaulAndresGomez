@@ -1,5 +1,4 @@
 import './App.css';
-import fondo from './css/fondo.png';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import { Button } from 'semantic-ui-react';
 import Footer from './components/footer';

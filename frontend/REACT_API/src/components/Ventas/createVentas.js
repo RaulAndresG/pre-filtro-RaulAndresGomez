@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import { Button, Form } from 'semantic-ui-react';
 import { useHistory } from 'react-router-dom';
+import '../../css/nav.css';
+
 
 export default function CreateVentas() {
   let history = useHistory();

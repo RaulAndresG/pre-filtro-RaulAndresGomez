@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { Button, Form } from 'semantic-ui-react';
 import axios from 'axios';
 import { useHistory } from 'react-router';
+import '../../css/nav.css';
+
 
 export default function CreateMotos() {
   let history = useHistory();

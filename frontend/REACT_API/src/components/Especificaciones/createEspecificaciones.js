@@ -2,6 +2,9 @@ import React, { useState } from "react";
 import { Button, Form } from 'semantic-ui-react';
 import axios from "axios";
 import { useHistory } from "react-router";
+import '../../css/nav.css';
+
+
 
 export default function CreateEspecificaciones() {
   let history = useHistory();
@@ -19,7 +22,8 @@ export default function CreateEspecificaciones() {
   const [aceleracion0_100, setAceleracion0_100] = useState('');
 
   const postData = () => {
-    axios.post(`http://localhost:7777/api/Especificaciones`, {
+    axios
+    .post(`http://localhost:7777/api/Especificaciones`, {
       potencia,
       torque,
       peso_seco: pesoSeco,

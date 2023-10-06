@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import { Table, Button } from 'semantic-ui-react';
 import axios from 'axios';
 import '../../css/nav.css';
-import logo1 from '../../css/logo1.png';
 import { Link } from 'react-router-dom';
 
 export default function ReadEspecificaciones() {
@@ -13,26 +12,24 @@ export default function ReadEspecificaciones() {
       .then((response) => {
         setEspecificacionesData(response.data);
       })
-      .catch((error) => {
-        console.error('Error al obtener los datos de especificaciones:', error);
-      });
   }, []);
 
   const setData = (data) => {
-    localStorage.setItem('ID', data._id);
-    localStorage.setItem('ModeloMoto', JSON.stringify(data.modelo_moto));
-    localStorage.setItem('Potencia', data.potencia);
-    localStorage.setItem('Torque', data.torque);
-    localStorage.setItem('PesoSeco', data.peso_seco);
-    localStorage.setItem('AlturaAsiento', data.altura_asiento);
-    localStorage.setItem('TipoChasis', data.tipo_chasis);
-    localStorage.setItem('SuspensionDelantera', data.suspension_delantera);
-    localStorage.setItem('SuspensionTrasera', data.suspension_trasera);
-    localStorage.setItem('FrenosDelanteros', data.frenos_delanteros);
-    localStorage.setItem('FrenosTraseros', data.frenos_traseros);
-    localStorage.setItem('Neumaticos', data.neumaticos);
-    localStorage.setItem('CapacidadTanque', data.capacidad_tanque);
-    localStorage.setItem('Aceleracion0_100', data.aceleracion_0_100);
+    let { _id, potencia, torque, peso_seco, altura_asiento, tipo_chasis,suspension_delantera ,suspension_trasera, frenos_delanteros,frenos_traseros,neumaticos, capacidad_tanque,aceleracion_0_100} = data;
+    localStorage.setItem('ID', _id);
+  /*   localStorage.setItem('ModeloMoto', JSON.stringify(data.modelo_moto)); */
+    localStorage.setItem('Potencia', potencia);
+    localStorage.setItem('Torque', torque);
+    localStorage.setItem('PesoSeco', peso_seco);
+    localStorage.setItem('AlturaAsiento', altura_asiento);
+    localStorage.setItem('TipoChasis', tipo_chasis);
+    localStorage.setItem('SuspensionDelantera', suspension_delantera);
+    localStorage.setItem('SuspensionTrasera', suspension_trasera);
+    localStorage.setItem('FrenosDelanteros', frenos_delanteros);
+    localStorage.setItem('FrenosTraseros', frenos_traseros);
+    localStorage.setItem('Neumaticos', neumaticos);
+    localStorage.setItem('CapacidadTanque', capacidad_tanque);
+    localStorage.setItem('Aceleracion0_100', aceleracion_0_100);
   };
 
   const getData = () => {
@@ -53,17 +50,52 @@ export default function ReadEspecificaciones() {
 
   return (
     <div>
-      <nav className='nav'>
-        <h1>Gestion Empresarial</h1>
-        <img className='imagen' src={logo1} alt="Descripción de la imagen" />
+ <nav className="nav">
+  <h1>Tu Título</h1>
+  <img className="imagen"  />
+  <a>
+    <Link className="a" to="/readAccesorios">
+      Accesorios
+    </Link>
+  </a>
+  <a>
+    <Link className="a" to="/readComentarios">
+      Comentarios
+    </Link>
+  </a>
+  <a>
+    <Link className="a" to="/readEspecificaciones">
+      Especificaciones
+    </Link>
+  </a>
+  <a>
+    <Link className="a" to="/readEventos">
+      Eventos
+    </Link>
+  </a>
+  <a>
+    <Link className="a" to="/readMarcas">
+      Marcas
+    </Link>
+  </a>
+  <a>
+    <Link className="a" to="/readMotos">
+      Motos
+    </Link>
+  </a>
+  <a>
+    <Link className="a" to="/readTalleresDeServicio">
+      TalleresDeServicio
+    </Link>
+  </a>
+  <a>
+    <Link className="a" to="/readVentas">
+      Ventas
+    </Link>
+  </a>
+</nav>
 
-        <a><Link className='a' to="/readClientes">Clientes</Link></a>
-        <a><Link className='a' to="/readInventario">Inventario</Link></a>
-        <a><Link className='a' to="/readEmpleados">Empleados</Link></a>
-        <a><Link className='a' to="/readProyectos">Proyectos</Link></a>
-        <a><Link className='a' to="/readEmpresas">Empresas</Link></a>
-        <a><Link className='a' to="/readUsuarios">Usuarios</Link></a>
-      </nav>
+
       <Table className='Table' singleLine>
         <Table.Header>
           <Table.Row>
@@ -115,3 +147,5 @@ export default function ReadEspecificaciones() {
     </div>
   );
 }
+
+/// funciona nada

@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { Table, Button } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
+import '../../css/nav.css';
+
 
 export default function ReadVentas() {
   const [ventasData, setVentasData] = useState([]);
@@ -43,24 +45,70 @@ export default function ReadVentas() {
 
   return (
     <div>
+ <nav className="nav">
+  <h1>Tu Título</h1>
+  <img className="imagen"  />
+  <a>
+    <Link className="a" to="/readAccesorios">
+      Accesorios
+    </Link>
+  </a>
+  <a>
+    <Link className="a" to="/readComentarios">
+      Comentarios
+    </Link>
+  </a>
+  <a>
+    <Link className="a" to="/readEspecificaciones">
+      Especificaciones
+    </Link>
+  </a>
+  <a>
+    <Link className="a" to="/readEventos">
+      Eventos
+    </Link>
+  </a>
+  <a>
+    <Link className="a" to="/readMarcas">
+      Marcas
+    </Link>
+  </a>
+  <a>
+    <Link className="a" to="/readMotos">
+      Motos
+    </Link>
+  </a>
+  <a>
+    <Link className="a" to="/readTalleresDeServicio">
+      TalleresDeServicio
+    </Link>
+  </a>
+  <a>
+    <Link className="a" to="/readVentas">
+      Ventas
+    </Link>
+  </a>
+</nav>
+
       <h1>Lectura de Ventas</h1>
       <Table singleLine>
         <Table.Header>
           <Table.Row>
-            <Table.HeaderCell>Modelo Moto</Table.HeaderCell>
-            <Table.HeaderCell>Año de Venta</Table.HeaderCell>
-            <Table.HeaderCell>Cantidad Vendida</Table.HeaderCell>
-            <Table.HeaderCell>Precio Promedio de Venta</Table.HeaderCell>
-            <Table.HeaderCell>Acciones</Table.HeaderCell>
+            <Table.HeaderCell className="small-header">Modelo Moto</Table.HeaderCell>
+            <Table.HeaderCell className="small-header">Año de Venta</Table.HeaderCell>
+            <Table.HeaderCell className="small-header">Cantidad Vendida</Table.HeaderCell>
+            <Table.HeaderCell className="small-header">Precio Promedio de Venta</Table.HeaderCell>
+            <Table.HeaderCell className="small-header">Acciones</Table.HeaderCell>
           </Table.Row>
         </Table.Header>
         <Table.Body>
           {ventasData.map((data) => (
             <Table.Row key={data._id.$oid}>
-              <Table.Cell>{`${data.modelo_moto.marca} ${data.modelo_moto.modelo}`}</Table.Cell>
-              <Table.Cell>{data.anio_venta}</Table.Cell>
-              <Table.Cell>{data.cantidad_vendida}</Table.Cell>
-              <Table.Cell>{data.precio_promedio_venta}</Table.Cell>
+              
+              <Table.Cell className="casilla">{`${data.modelo_moto.marca} ${data.modelo_moto.modelo}`}</Table.Cell>
+              <Table.Cell className="casilla">{data.anio_venta}</Table.Cell>
+              <Table.Cell className="casilla">{data.cantidad_vendida}</Table.Cell>
+              <Table.Cell className="casilla">{data.precio_promedio_venta}</Table.Cell>
               <Table.Cell>
                 <Link to="/updateVentas">
                   <Button color="blue" onClick={() => setData(data)}>
@@ -78,3 +126,4 @@ export default function ReadVentas() {
     </div>
   );
 }
+/// no funciona nada

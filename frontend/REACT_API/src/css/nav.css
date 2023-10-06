@@ -1,106 +1,104 @@
 /* Estilos para la barra de navegación */
 .nav {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 60px;
-    background-color: #3498db;
-  }
-  
-  /* Estilos para los enlaces de navegación */
-  .a {
-    text-decoration: none;
-    color: white;
-    background-color: #3498db;
-    padding: 10px 20px;
-    border-radius: 5px;
-    font-size: 18px;
-    margin: 0 10px;
-  }
-  
-  /* Estilos para la imagen en la barra de navegación */
-  .imagen {
-    height: 40px;
-    width: 40px;
-    border-radius: 50%;
-  }
-  
-  /* Estilos para el encabezado principal */
-  h1 {
-    color: #3498db;
-    font-size: 25px;
-  }
-  
-  /* Estilos para los enlaces al pasar el mouse */
-  .a:hover {
-    background-color: #2980b9;
-    transition: background-color 0.5s;
-  }
-  
-  /* Estilos para las tablas */
-  .Table {
-    margin: 20px auto;
-    max-width: 800px;
-    background-color: #ecf0f1;
-    border-radius: 10px;
-  }
-  
-  /* Estilos para celdas de la tabla */
-  .casilla {
-    text-align: center;
-    background-color: #ecf0f1;
-    padding: 10px;
-  }
-  
-  /* Estilos para los botones */
-  .boton {
-    background-color: #3498db;
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-  }
-  
-  /* Estilos para encabezados pequeños */
-  .small-header {
-    font-size: 20px;
-    background-color: #3498db;
-    color: white;
-    padding: 10px;
-    text-align: center;
-    border-radius: 5px;
-    margin-top: 20px;
-  }
-  
-  /* Estilos para otras tablas y celdas */
-  .Table1,
-  .Table2,
-  .Table3 {
-    margin: 20px auto;
-    max-width: 800px;
-    background-color: #ecf0f1;
-    border-radius: 10px;
-  }
-  
-  .casilla1,
-  .casilla2,
-  .casilla3 {
-    text-align: center;
-    background-color: #ecf0f1;
-    padding: 10px;
-  }
-  
-  /* Estilos para botones adicionales */
-  .boton1,
-  .boton2,
-  .boton3 {
-    background-color: #3498db;
-    color: white;
-    padding: 10px 15px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    margin-left: 20px;
-  }
-  
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* Modificamos esto para que los enlaces estén separados */
+  height: 60px;
+  background-color: #33333341; /* Cambiamos el color a gris oscuro */
+  padding: 0 20px; /* Añadimos un espacio a los lados */
+}
+
+/* Estilos para los enlaces de navegación */
+.a {
+  text-decoration: none;
+  color: rgba(255, 255, 255, 0.74);
+  padding: 10px 15px; /* Reducimos el espacio interior */
+  border-radius: 5px;
+  font-size: 16px; /* Reducimos el tamaño de la fuente */
+  margin: 10px;
+  transition: background-color 0.3s;
+}
+
+/* Estilos para el encabezado principal */
+h1 {
+  color: #b8481ba2; /* Cambiamos el color a gris oscuro */
+  font-size: 25px;
+}
+
+/* Estilos para los enlaces al pasar el mouse */
+.a:hover {
+  background-color: #af2f12ab; /* Cambiamos el color a rojo */
+}
+
+/* Estilos para las tablas */
+.Table {
+  margin: 20px auto;
+  max-width: 800px;
+  background-color: #ffffffc2;
+  border-radius: 10px;
+  border: 1px solid #cccccc93; /* Añadimos un borde */
+  overflow-x: auto; /* Agregamos scroll horizontal si es necesario */
+}
+
+/* Estilos para celdas de la tabla */
+.casilla {
+  text-align: center;
+  padding: 10px;
+  border-bottom: 2px solid #0705058c; /* Agregamos una línea divisoria entre filas */
+}
+
+/* Estilos para los botones */
+.boton {
+  background-color: #c43414c7; /* Cambiamos el color a rojo */
+  color: rgba(255, 255, 255, 0.726);
+  padding: 8px 12px; /* Hacemos los botones un poco más pequeños */
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+/* Estilos para encabezados pequeños */
+.small-header {
+  font-size: 18px; /* Reducimos el tamaño de fuente */
+  background-color: #333; /* Cambiamos el color a gris oscuro */
+  color: white;
+  padding: 10px;
+  text-align: center;
+  border-radius: 5px;
+  margin-top: 20px;
+}
+/* Estilos para el formulario create-form */
+.create-form {
+  max-width: 500px; /* Establece un ancho máximo para el formulario */
+  margin: 0 auto; /* Centra horizontalmente el formulario */
+  padding: 20px; /* Añade un espacio interno al formulario */
+  background-color: #f2f2f2; /* Cambia el fondo a un gris claro */
+  border-radius: 10px; /* Agrega bordes redondeados al formulario */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Agrega una sombra al formulario */
+}
+
+/* Estilos para los campos de entrada dentro del formulario */
+.create-form input {
+  width: 100%; /* Establece el ancho de los campos al 100% del contenedor */
+  margin-bottom: 10px; /* Agrega espacio entre los campos */
+  padding: 10px; /* Añade espacio interno a los campos */
+  border: 1px solid #ccc; /* Agrega un borde ligero a los campos */
+  border-radius: 5px; /* Agrega bordes redondeados a los campos */
+}
+
+/* Estilos para el botón de "Crear" dentro del formulario */
+.create-form button {
+  background-color: #ff5733; /* Cambia el color de fondo a rojo */
+  color: white; /* Cambia el color del texto a blanco */
+  padding: 10px 20px; /* Ajusta el tamaño del botón */
+  border: none; /* Elimina el borde del botón */
+  border-radius: 5px; /* Agrega bordes redondeados al botón */
+  cursor: pointer;
+}
+
+/* Estilos para el botón de "Crear" al pasar el mouse */
+.create-form button:hover {
+  background-color: #ff371f; /* Cambia el color de fondo a un tono más oscuro de rojo */
+}
+
+/* Estilos para otros elementos (puedes agregar más estilos aquí) */

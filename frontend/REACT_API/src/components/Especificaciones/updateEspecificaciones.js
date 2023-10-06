@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { Button, Form, Checkbox } from 'semantic-ui-react';
 import axios from 'axios';
 import { useHistory } from 'react-router';
+import '../../css/nav.css';
+
 
 export default function UpdateEspecificaciones() {
   let history = useHistory();
@@ -22,36 +24,36 @@ export default function UpdateEspecificaciones() {
 
   useEffect(() => {
     setID(localStorage.getItem('ID'));
-    setModeloMoto(localStorage.getItem('ModeloMoto') || '');
-    setPotencia(localStorage.getItem('Potencia') || 0);
-    setTorque(localStorage.getItem('Torque') || 0);
-    setPesoSeco(localStorage.getItem('PesoSeco') || 0);
-    setAlturaAsiento(localStorage.getItem('AlturaAsiento') || 0);
-    setTipoChasis(localStorage.getItem('TipoChasis') || '');
-    setSuspensionDelantera(localStorage.getItem('SuspensionDelantera') || '');
-    setSuspensionTrasera(localStorage.getItem('SuspensionTrasera') || '');
-    setFrenosDelanteros(localStorage.getItem('FrenosDelanteros') || '');
-    setFrenosTraseros(localStorage.getItem('FrenosTraseros') || '');
-    setNeumaticos(localStorage.getItem('Neumaticos') || '');
-    setCapacidadTanque(localStorage.getItem('CapacidadTanque') || 0);
-    setAceleracion0100(localStorage.getItem('Aceleracion0100') || 0);
+    setModeloMoto(localStorage.getItem('ModeloMoto'));
+    setPotencia(localStorage.getItem('Potencia') );
+    setTorque(localStorage.getItem('Torque') );
+    setPesoSeco(localStorage.getItem('PesoSeco'));
+    setAlturaAsiento(localStorage.getItem('AlturaAsiento') );
+    setTipoChasis(localStorage.getItem('TipoChasis') );
+    setSuspensionDelantera(localStorage.getItem('SuspensionDelantera') );
+    setSuspensionTrasera(localStorage.getItem('SuspensionTrasera') );
+    setFrenosDelanteros(localStorage.getItem('FrenosDelanteros') );
+    setFrenosTraseros(localStorage.getItem('FrenosTraseros') );
+    setNeumaticos(localStorage.getItem('Neumaticos') );
+    setCapacidadTanque(localStorage.getItem('CapacidadTanque') );
+    setAceleracion0100(localStorage.getItem('Aceleracion0100') );
   }, []);
 
   const updateAPIData = () => {
     axios.put(`http://localhost:7777/api/Especificaciones/${_id}`, {
       modelo_moto: modeloMoto,
-      potencia: parseFloat(potencia),
-      torque: parseFloat(torque),
-      peso_seco: parseFloat(pesoSeco),
-      altura_asiento: parseFloat(alturaAsiento),
+      potencia,
+      torque,
+      peso_seco:pesoSeco,
+      altura_asiento: alturaAsiento,
       tipo_chasis: tipoChasis,
       suspension_delantera: suspensionDelantera,
       suspension_trasera: suspensionTrasera,
       frenos_delanteros: frenosDelanteros,
       frenos_traseros: frenosTraseros,
-      neumaticos: neumaticos,
-      capacidad_tanque: parseFloat(capacidadTanque),
-      aceleracion_0_100: parseFloat(aceleracion0100),
+      neumaticos,
+      capacidad_tanque: capacidadTanque,
+      aceleracion_0_100: aceleracion0100,
     }).then(() => {
       history.push('/readEspecificaciones');
     });
@@ -174,7 +176,7 @@ export default function UpdateEspecificaciones() {
 
         </Form.Field>
         <Button type="submit" onClick={updateAPIData}>
-          ACTUALIZAR
+          actualizar
         </Button>
       </Form>
     </div>

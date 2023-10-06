@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { Button, Form, Checkbox } from 'semantic-ui-react';
 import axios from 'axios';
 import { useHistory } from 'react-router';
+import '../../css/nav.css';
+
 
 export default function UpdateEventos() {
   let history = useHistory();
@@ -17,9 +19,7 @@ export default function UpdateEventos() {
     setNombre(localStorage.getItem('Nombre'));
     setFechaLugar(localStorage.getItem('FechaLugar'));
     setDescripcion(localStorage.getItem('Descripcion'));
-    setMarcasModelosDestacados(
-      localStorage.getItem('MarcasModelosDestacados').split(', ')
-    );
+    setMarcasModelosDestacados(localStorage.getItem('MarcasModelosDestacados').split(', '));
   }, []);
 
   const updateAPIData = () => {

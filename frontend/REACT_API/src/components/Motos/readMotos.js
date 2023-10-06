@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import '../../css/nav.css';
-import logo1 from '../../css/logo1.png';
 import { Table, Button } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
 
@@ -57,45 +56,53 @@ export default function ReadMotos() {
 
   return (
     <div>
-      <nav className="nav">
-        <h1>Gestion Empresarial</h1>
-        <img className="imagen" src={logo1} alt="Descripción de la imagen" />
-        <a>
-          <Link className="a" to="/readClientes">
-            Clientes
-          </Link>
-        </a>
-        <a>
-          <Link className="a" to="/readInventario">
-            Inventario
-          </Link>
-        </a>
-        <a>
-          <Link className="a" to="/read">
-            Empleados
-          </Link>
-        </a>
-        <a>
-          <Link className="a" to="/readProyectos">
-            Proyectos
-          </Link>
-        </a>
-        <a>
-          <Link className="a" to="/readEmpresas">
-            Empresas
-          </Link>
-        </a>
-        <a>
-          <Link className="a" to="/readUsuarios">
-            Usuarios
-          </Link>
-        </a>
-        <a>
-          <Link className="a" to="/readMotos">
-            Motos
-          </Link>
-        </a>
-      </nav>
+   <nav className="nav">
+  <h1>Tu Título</h1>
+  <img className="imagen"  />
+  <a>
+    <Link className="a" to="/readAccesorios">
+      Accesorios
+    </Link>
+  </a>
+  <a>
+    <Link className="a" to="/readComentarios">
+      Comentarios
+    </Link>
+  </a>
+  <a>
+    <Link className="a" to="/readEspecificaciones">
+      Especificaciones
+    </Link>
+  </a>
+  <a>
+    <Link className="a" to="/readEventos">
+      Eventos
+    </Link>
+  </a>
+  <a>
+    <Link className="a" to="/readMarcas">
+      Marcas
+    </Link>
+  </a>
+  <a>
+    <Link className="a" to="/readMotos">
+      Motos
+    </Link>
+  </a>
+  <a>
+    <Link className="a" to="/readTalleresDeServicio">
+      TalleresDeServicio
+    </Link>
+  </a>
+  <a>
+    <Link className="a" to="/readVentas">
+      Ventas
+    </Link>
+  </a>
+</nav>
+
+
+
       <Table className="Table" singleLine>
         <Table.Header>
           <Table.Row>
@@ -139,3 +146,5 @@ export default function ReadMotos() {
     </div>
   );
 }
+
+///// funciona agregar y delete 

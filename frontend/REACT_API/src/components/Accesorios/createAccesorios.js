@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { Button, Form } from 'semantic-ui-react';
 import axios from "axios";
 import { useHistory } from "react-router";
+import '../../css/nav.css';
+
 
 export default function CreateAccesorios() {
   let history = useHistory();
@@ -22,7 +24,7 @@ export default function CreateAccesorios() {
       nombre,
       descripcion,
       precio,
-      modelo_moto_compatible: [
+     /*  modelo_moto_compatible: [
         {
           marca: modeloMotoMarca,
           modelo: modeloMotoModelo,
@@ -31,7 +33,7 @@ export default function CreateAccesorios() {
           tipo_motor: modeloMotoTipoMotor,
           descripcion: modeloMotoDescripcion,
         }
-      ],
+      ], */
       error
     }).then(() => {
       history.push('/Accesorios');

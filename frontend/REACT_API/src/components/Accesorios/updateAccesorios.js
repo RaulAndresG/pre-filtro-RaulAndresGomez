@@ -1,97 +1,150 @@
-import React, { useState, useEffect } from "react";
-import { Button, Checkbox, Form } from 'semantic-ui-react';
-import axios from "axios";
-import { useHistory } from "react-router";
+import React, { useEffect, useState } from 'react';
+import axios from 'axios';
+import { Card, Button, Form } from 'semantic-ui-react';
 
-export default function UpdateAccesorios() {
-  let history = useHistory();
-  const [_id, setID] = useState(null);
-  const [nombre, setNombre] = useState('');
-  const [descripcion, setDescripcion] = useState('');
-  const [precio, setPrecio] = useState('');
-  const [modeloMotoMarca, setModeloMotoMarca] = useState('');
-  const [modeloMotoModelo, setModeloMotoModelo] = useState('');
-  const [modeloMotoCilindraje, setModeloMotoCilindraje] = useState('');
-  const [modeloMotoAnio, setModeloMotoAnio] = useState('');
-  const [modeloMotoTipoMotor, setModeloMotoTipoMotor] = useState('');
-  const [modeloMotoDescripcion, setModeloMotoDescripcion] = useState('');
+export default function Accesorios() {
+  const [accesorios, setAccesorios] = useState([]);
+  const [formData, setFormData] = useState({
+    nombre: '',
+    descripcion: '',
+    precio: '',
+    modelo_moto_compatible: [],
+  });
+  const [editingAccesorio, setEditingAccesorio] = useState(null);
 
-  useEffect(()=>{
-    setID(localStorage.getItem('ID'));
-    setNombre(localStorage.getItem('Nombre'));
-    setDescripcion(localStorage.getItem('Descripcion'));
-    setPrecio(localStorage.getItem('Precio'));
-    setModeloMotoMarca(localStorage.getItem('ModeloMotoMarca'));
-    setModeloMotoModelo(localStorage.getItem('ModeloMotoModelo'));
-    setModeloMotoCilindraje(localStorage.getItem('ModeloMotoCilindraje'));
-    setModeloMotoAnio(localStorage.getItem('ModeloMotoAnio'));
-    setModeloMotoTipoMotor(localStorage.getItem('ModeloMotoTipoMotor'));
-    setModeloMotoDescripcion(localStorage.getItem('ModeloMotoDescripcion'));
-  },[]);
+  const { nombre, descripcion, precio, modelo_moto_compatible } = formData;
 
-  const updateAPIData = () => {
-    axios.put(`http://localhost:7777/api/Accesorios/${_id}`,
-      {
-        nombre,
-        descripcion,
-        precio,
-        modelo_moto_compatible: [
-          {
-            marca: modeloMotoMarca,
-            modelo: modeloMotoModelo,
-            cilindraje: modeloMotoCilindraje,
-            anio: modeloMotoAnio,
-            tipo_motor: modeloMotoTipoMotor,
-            descripcion: modeloMotoDescripcion,
-          }
-        ]
+  useEffect(() => {
+    fetchData();
+  }, []);
+
+  const fetchData = async () => {
+    try {
+      const response = await axios.get('http://localhost:7777/api/Accesorios'); 
+      setAccesorios(response.data);
+    } catch (error) {
+      console.error('Error al obtener accesorios', error);
+    }
+  };
+
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({ ...formData, [name]: value });
+  };
+
+  const handleAddAccesorio = async () => {
+    try {
+      if (editingAccesorio) {
+        await axios.patch(
+          `http://localhost:7777/api/Accesorios/${editingAccesorio._id}`,
+          formData
+        );
+      } else {
+        await axios.post('http://localhost:7777/api/Accesorios', formData);
       }
-    ).then(() => {
-      history.push('/Accesorios');
-    })
-  }
+      fetchData();
+      setFormData({
+        nombre: '',
+        descripcion: '',
+        precio: '',
+        modelo_moto_compatible: [],
+      });
+      setEditingAccesorio(null);
+    } catch (error) {
+      console.error('Error al agregar/actualizar accesorio', error);
+    }
+  };
+
+  const handleDeleteAccesorio = async (id) => {
+    try {
+      await axios.delete(`http://localhost:7777/api/Accesorios/${id}`);
+      fetchData();
+    } catch (error) {
+      console.error('Error al eliminar accesorio', error);
+    }
+  };
+
+  const handleEditAccesorio = (id) => {
+    const accesorioToEdit = accesorios.find((accesorio) => accesorio._id === id);
+    if (accesorioToEdit) {
+      setEditingAccesorio(accesorioToEdit);
+      setFormData({
+        nombre: accesorioToEdit.nombre,
+        descripcion: accesorioToEdit.descripcion,
+        precio: accesorioToEdit.precio,
+        modelo_moto_compatible: accesorioToEdit.modelo_moto_compatible,
+      });
+    }
+  };
 
   return (
     <div>
-      <Form className="create-form">
+      <h1>Accesorios</h1>
+      <Form>
         <Form.Field>
           <label>Nombre</label>
-          <input placeholder="Nombre" value={nombre} onChange={(e) => setNombre(e.target.value)}></input>
+          <input
+            type="text"
+            name="nombre"
+            value={nombre}
+            onChange={handleInputChange}
+          />
         </Form.Field>
         <Form.Field>
-          <label>Descripcion</label>
-          <input placeholder="Descripcion" value={descripcion} onChange={(e) => setDescripcion(e.target.value)}></input>
+          <label>Descripción</label>
+          <input
+            type="text"
+            name="descripcion"
+            value={descripcion}
+            onChange={handleInputChange}
+          />
         </Form.Field>
         <Form.Field>
           <label>Precio</label>
-          <input placeholder="Precio" value={precio} onChange={(e) => setPrecio(e.target.value)}></input>
+          <input
+            type="text"
+            name="precio"
+            value={precio}
+            onChange={handleInputChange}
+          />
         </Form.Field>
-        <Form.Field>
-          <label>ModeloMotoMarca</label>
-          <input placeholder="ModeloMotoMarca" value={modeloMotoMarca} onChange={(e) => setModeloMotoMarca(e.target.value)}></input>
-        </Form.Field>
-        <Form.Field>
-          <label>ModeloMotoModelo</label>
-          <input placeholder="ModeloMotoModelo" value={modeloMotoModelo} onChange={(e) => setModeloMotoModelo(e.target.value)}></input>
-        </Form.Field>
-        <Form.Field>
-          <label>ModeloMotoCilindraje</label>
-          <input placeholder="ModeloMotoCilindraje" value={modeloMotoCilindraje} onChange={(e) => setModeloMotoCilindraje(e.target.value)}></input>
-        </Form.Field>
-        <Form.Field>
-          <label>ModeloMotoAnio</label>
-          <input placeholder="ModeloMotoAnio" value={modeloMotoAnio} onChange={(e) => setModeloMotoAnio(e.target.value)}></input>
-        </Form.Field>
-        <Form.Field>
-          <label>ModeloMotoTipoMotor</label>
-          <input placeholder="ModeloMotoTipoMotor" value={modeloMotoTipoMotor} onChange={(e) => setModeloMotoTipoMotor(e.target.value)}></input>
-        </Form.Field>
-        <Form.Field>
-          <label>ModeloMotoDescripcion</label>
-          <input placeholder="ModeloMotoDescripcion" value={modeloMotoDescripcion} onChange={(e) => setModeloMotoDescripcion(e.target.value)}></input>
-        </Form.Field>
-        <Button type="submit" onClick={updateAPIData}>Actualizar</Button>
+        {/* Añadir campos para modelo_moto_compatible (puede ser un campo de texto o una lista) */}
+        <Button onClick={handleAddAccesorio}>
+          {editingAccesorio ? 'Actualizar Accesorio' : 'Agregar Accesorio'}
+        </Button>
       </Form>
+
+      <div className="card-container">
+        {accesorios.map((accesorio) => (
+          <Card key={accesorio._id}>
+            <Card.Content>
+              <Card.Header>{accesorio.nombre}</Card.Header>
+              <Card.Meta>{accesorio.precio} USD</Card.Meta>
+              <Card.Description>{accesorio.descripcion}</Card.Description>
+              {/* Mostrar otros detalles del accesorio */}
+              {/* ... (como en el ejemplo anterior) */}
+            </Card.Content>
+            <Card.Content extra>
+              <div className="ui two buttons">
+                <Button
+                  basic
+                  color="green"
+                  onClick={() => handleEditAccesorio(accesorio._id)}
+                >
+                  Editar
+                </Button>
+                <Button
+                  basic
+                  color="red"
+                  onClick={() => handleDeleteAccesorio(accesorio._id)}
+                >
+                  Eliminar
+                </Button>
+              </div>
+            </Card.Content>
+          </Card>
+        ))}
+      </div>
     </div>
   );
 }

@@ -44,6 +44,51 @@ export default function ReadTalleresDeServicio() {
 
   return (
     <div>
+ <nav className="nav">
+  <h1>Tu Título</h1>
+  <img className="imagen"  />
+  <a>
+    <Link className="a" to="/readAccesorios">
+      Accesorios
+    </Link>
+  </a>
+  <a>
+    <Link className="a" to="/readComentarios">
+      Comentarios
+    </Link>
+  </a>
+  <a>
+    <Link className="a" to="/readEspecificaciones">
+      Especificaciones
+    </Link>
+  </a>
+  <a>
+    <Link className="a" to="/readEventos">
+      Eventos
+    </Link>
+  </a>
+  <a>
+    <Link className="a" to="/readMarcas">
+      Marcas
+    </Link>
+  </a>
+  <a>
+    <Link className="a" to="/readMotos">
+      Motos
+    </Link>
+  </a>
+  <a>
+    <Link className="a" to="/readTalleresDeServicio">
+      TalleresDeServicio
+    </Link>
+  </a>
+  <a>
+    <Link className="a" to="/readVentas">
+      Ventas
+    </Link>
+  </a>
+</nav>
+
       <h1>Lectura de Talleres de Servicio</h1>
       <Table singleLine>
         <Table.Header>
@@ -81,3 +126,6 @@ export default function ReadTalleresDeServicio() {
     </div>
   );
 }
+
+
+//// funciona el  crear el update no y el delete no 
