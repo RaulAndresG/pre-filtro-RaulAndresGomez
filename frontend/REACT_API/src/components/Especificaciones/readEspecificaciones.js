@@ -51,7 +51,7 @@ export default function ReadEspecificaciones() {
   return (
     <div>
  <nav className="nav">
-  <h1>Tu Título</h1>
+  <h1>Especificaciones</h1>
   <img className="imagen"  />
   <a>
     <Link className="a" to="/readAccesorios">
@@ -99,8 +99,7 @@ export default function ReadEspecificaciones() {
       <Table className='Table' singleLine>
         <Table.Header>
           <Table.Row>
-            <Table.HeaderCell className='small-header'>Modelo de Moto</Table.HeaderCell>
-            <Table.HeaderCell className='small-header'>Potencia</Table.HeaderCell>
+            <Table.HeaderCell className='border-header-derecha '>Potencia</Table.HeaderCell>
             <Table.HeaderCell className='small-header'>Torque</Table.HeaderCell>
             <Table.HeaderCell className='small-header'>Peso Seco</Table.HeaderCell>
             <Table.HeaderCell className='small-header'>Altura de Asiento</Table.HeaderCell>
@@ -113,13 +112,13 @@ export default function ReadEspecificaciones() {
             <Table.HeaderCell className='small-header'>Capacidad del Tanque</Table.HeaderCell>
             <Table.HeaderCell className='small-header'>Aceleración 0-100</Table.HeaderCell>
             <Table.HeaderCell className='small-header'>Actualizar</Table.HeaderCell>
-            <Table.HeaderCell className='small-header'>Eliminar</Table.HeaderCell>
+            <Table.HeaderCell className='border-header-izquierda'>Eliminar</Table.HeaderCell>
           </Table.Row>
         </Table.Header>
         <Table.Body>
           {especificacionesData.map((data) => (
             <Table.Row key={data._id}>
-              <Table.Cell className='casilla'>{data.modelo_moto ? data.modelo_moto.modelo : 'N/A'}</Table.Cell>
+
               <Table.Cell className='casilla'>{data.potencia}</Table.Cell>
               <Table.Cell className='casilla'>{data.torque}</Table.Cell>
               <Table.Cell className='casilla'>{data.peso_seco}</Table.Cell>

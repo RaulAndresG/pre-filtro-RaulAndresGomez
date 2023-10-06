@@ -42,7 +42,7 @@ export default function ReadMarcas() {
   return (
     <div>
    <nav className="nav">
-  <h1>Tu Título</h1>
+  <h1>Marcas</h1>
   <img className="imagen"  />
   <a>
     <Link className="a" to="/readAccesorios">
@@ -90,13 +90,13 @@ export default function ReadMarcas() {
       <Table className="Table" singleLine>
         <Table.Header>
           <Table.Row>
-            <Table.HeaderCell className="small-header">Nombre</Table.HeaderCell>
+            <Table.HeaderCell className="border-header-derecha ">Nombre</Table.HeaderCell>
             <Table.HeaderCell className="small-header">País de Origen</Table.HeaderCell>
             <Table.HeaderCell className="small-header">Año de Fundación</Table.HeaderCell>
             <Table.HeaderCell className="small-header">Sitio Web</Table.HeaderCell>
             <Table.HeaderCell className="small-header">Logotipo</Table.HeaderCell>
             <Table.HeaderCell className="small-header">Actualizar</Table.HeaderCell>
-            <Table.HeaderCell className="small-header">Eliminar</Table.HeaderCell>
+            <Table.HeaderCell className="border-header-izquierda">Eliminar</Table.HeaderCell>
           </Table.Row>
         </Table.Header>
         <Table.Body>
@@ -108,7 +108,7 @@ export default function ReadMarcas() {
               <Table.Cell className="casilla">{data.sitio_web}</Table.Cell>
               <Table.Cell className="casilla">{data.logotipo}</Table.Cell>
               <Table.Cell>
-                <Link to={`/updateMarcas/${data._id}`}>
+                <Link to={`/updateMarcas`}>
                   <Button className="boton" onClick={() => setData(data)}>
                     Actualizar
                   </Button>

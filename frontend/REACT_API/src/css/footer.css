@@ -1,23 +1,80 @@
-/* Footer.css */
-
+/* Estilos base para el footer */
 .footer {
-    background-color: #333;
-    color: #fff;
-    padding: 20px 0;
-    text-align: center;
-  }
-  
-/*   position: fixed; 
-  left: 0;
-  bottom: 0;
-  width: 100%; 
   background-color: #333;
   color: #fff;
   padding: 20px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   text-align: center;
-   */
-  .container {
-    max-width: 1200px; /* Ancho máximo del contenido del footer */
-    margin: 0 auto; /* Centra el contenido horizontalmente */
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.contact-info {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  margin-bottom: 20px;
+}
+
+.contact-item {
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+  text-align: center;
+}
+
+.social-links {
+  display: flex;
+  gap: 20px;
+}
+
+.social-links a img {
+  width: 40px;
+  height: 40px;
+}
+
+.social-links a {
+  text-decoration: none;
+  color: #fff;
+  font-size: 24px;
+  transition: color 0.3s;
+}
+
+.social-links a:hover {
+  color: #be7507e0;
+}
+
+/* Estilos responsivos */
+@media (max-width: 768px) {
+  .footer {
+    padding: 20px;
   }
-  
+
+  .contact-info {
+    flex-direction: column;
+    text-align: center;
+    gap: 10px;
+  }
+
+  .contact-item {
+    font-size: 14px;
+  }
+
+  .social-links {
+    gap: 10px;
+  }
+
+  .social-links a img {
+    width: 30px;
+    height: 30px;
+  }
+
+  .social-links a {
+    font-size: 20px;
+  }
+}

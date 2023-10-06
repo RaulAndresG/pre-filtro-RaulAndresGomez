@@ -78,28 +78,28 @@ export default function App() {
 
         <div className="botones">
           <Link to="/createAccesorios">
-            <Button>Crear Accesorio</Button>
+            <Button className='boto'>Crear Accesorio</Button>
           </Link>
           <Link to="/createComentarios">
-            <Button>Crear Comentario</Button>
+            <Button className='boto'>Crear Comentario</Button>
           </Link>
           <Link to="/createEspecificaciones">
-            <Button>Crear Especificación</Button>
+            <Button className='boto'> Crear Especificación</Button>
           </Link>
           <Link to="/createEventos">
-            <Button>Crear Evento</Button>
+            <Button className='boto'>Crear Evento</Button>
           </Link>
           <Link to="/createMarcas">
-            <Button>Crear Marca</Button>
+            <Button className='boto'>Crear Marca</Button>
           </Link>
           <Link to="/createMotos">
-            <Button>Crear Moto</Button>
+            <Button className='boto'> Crear Moto</Button>
           </Link>
           <Link to="/createTalleresDeServicio">
-            <Button>Crear Taller de Servicio</Button>
+            <Button className='boto'>Crear Taller de Servicio</Button>
           </Link>
           <Link to="/createVentas">
-            <Button>Crear Venta</Button>
+            <Button className='boto'>Crear Venta</Button>
           </Link>
         </div>
       </div>

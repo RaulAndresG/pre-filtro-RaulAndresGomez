@@ -43,7 +43,7 @@ export default function ReadComentarios() {
   return (
     <div>
   <nav className="nav">
-  <h1>Tu Título</h1>
+  <h1>Comentarios</h1>
   <img className="imagen"  />
   <a>
     <Link className="a" to="/readAccesorios">
@@ -91,7 +91,7 @@ export default function ReadComentarios() {
       <Table className="Table" singleLine>
         <Table.Header>
           <Table.Row>
-            <Table.HeaderCell className="small-header">
+            <Table.HeaderCell className="border-header-derecha ">
               Usuario
             </Table.HeaderCell>
             <Table.HeaderCell className="small-header">
@@ -103,7 +103,7 @@ export default function ReadComentarios() {
             <Table.HeaderCell className="small-header">
               Actualizar
             </Table.HeaderCell>
-            <Table.HeaderCell className="small-header">
+            <Table.HeaderCell className="border-header-izquierda">
               Eliminar
             </Table.HeaderCell>
           </Table.Row>

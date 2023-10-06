@@ -7,37 +7,21 @@ import '../../css/nav.css';
 
 export default function CreateComentarios() {
   let history = useHistory();
-  const [modeloMotoId, setModeloMotoId] = useState('');
+  /* const [modeloMotoId, setModeloMotoId] = useState(''); */
   const [usuario, setUsuario] = useState('');
   const [comentario, setComentario] = useState('');
   const [calificacion, setCalificacion] = useState('');
-  const [error, setError] = useState('');
+  const [error, setError] = useState('')
 
   const postData = () => {
     axios.post(`http://localhost:7777/api/Comentarios`, {
-      modelo_moto: {
-        _id: {
-          "$oid": modeloMotoId
-        },
-        marca: "Ducati",
-        modelo: "Monster 821",
-        cilindraje: 821,
-        anio: 2021,
-        precio: 14000,
-        tipo_motor: "L-Twin",
-        descripcion: "Una moto naked deportiva con estilo italiano.",
-        imagenes: [
-          "monster_821_1.jpg",
-          "monster_821_2.jpg"
-        ],
-        comentarios: []
-      },
+      /* modelo_moto: modeloMotoId, */
       usuario,
       comentario,
       calificacion,
       error
     }).then(() => {
-      history.push('/Comentarios');
+      history.push('/readComentarios');
     })
     .catch((error) => {
       console.error('Error al crear el elemento:', error);
@@ -48,10 +32,10 @@ export default function CreateComentarios() {
   return (
     <div>
       <Form className="create-form">
-        <Form.Field>
+      {/*   <Form.Field>
           <label>ModeloMotoId</label>
           <input placeholder="ModeloMotoId" value={modeloMotoId} onChange={(e) => setModeloMotoId(e.target.value)} ></input>
-        </Form.Field>
+        </Form.Field> */}
         <Form.Field>
           <label>Usuario</label>
           <input placeholder="Usuario" value={usuario} onChange={(e) => setUsuario(e.target.value)} ></input>

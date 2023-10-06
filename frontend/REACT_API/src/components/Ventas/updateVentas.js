@@ -8,10 +8,10 @@ import '../../css/nav.css';
 export default function UpdateVentas() {
   let history = useHistory();
   const [_id, setID] = useState(null);
-  const [modeloMotoMarca, setModeloMotoMarca] = useState('');
+/*   const [modeloMotoMarca, setModeloMotoMarca] = useState('');
   const [modeloMotoModelo, setModeloMotoModelo] = useState('');
   const [modeloMotoCilindraje, setModeloMotoCilindraje] = useState(0);
-  const [modeloMotoAnio, setModeloMotoAnio] = useState(0);
+  const [modeloMotoAnio, setModeloMotoAnio] = useState(0); */
   const [precio, setPrecio] = useState(0);
   const [anioVenta, setAnioVenta] = useState(0);
   const [cantidadVendida, setCantidadVendida] = useState(0);
@@ -19,10 +19,10 @@ export default function UpdateVentas() {
 
   useEffect(()=>{
     setID(localStorage.getItem('ID'));
-    setModeloMotoMarca(localStorage.getItem('ModeloMotoMarca'));
+/*     setModeloMotoMarca(localStorage.getItem('ModeloMotoMarca'));
     setModeloMotoModelo(localStorage.getItem('ModeloMotoModelo'));
     setModeloMotoCilindraje(localStorage.getItem('ModeloMotoCilindraje'));
-    setModeloMotoAnio(localStorage.getItem('ModeloMotoAnio'));
+    setModeloMotoAnio(localStorage.getItem('ModeloMotoAnio')); */
     setPrecio(localStorage.getItem('Precio'));
     setAnioVenta(localStorage.getItem('AnioVenta'));
     setCantidadVendida(localStorage.getItem('CantidadVendida'));
@@ -32,12 +32,12 @@ export default function UpdateVentas() {
   const updateAPIData = () => {
     axios.put(`http://localhost:7777/api/Ventas/${_id}`,
       {
-        modelo_moto: {
+    /*     modelo_moto: {
           marca: modeloMotoMarca,
           modelo: modeloMotoModelo,
           cilindraje: modeloMotoCilindraje,
           anio: modeloMotoAnio,
-        },
+        }, */
         precio,
         anio_venta: anioVenta,
         cantidad_vendida: cantidadVendida,
@@ -54,7 +54,7 @@ export default function UpdateVentas() {
     <div>
       <h1>Actualizar Venta</h1>
       <Form className="create-form">
-        <Form.Field>
+{/*         <Form.Field>
           <label>Marca de la Moto</label>
           <input placeholder="Marca de la Moto" value={modeloMotoMarca} onChange={(e) => setModeloMotoMarca(e.target.value)}></input>
         </Form.Field>
@@ -69,7 +69,7 @@ export default function UpdateVentas() {
         <Form.Field>
           <label>Año de la Moto</label>
           <input type="number" placeholder="Año de la Moto" value={modeloMotoAnio} onChange={(e) => setModeloMotoAnio(e.target.value)}></input>
-        </Form.Field>
+        </Form.Field> */}
         <Form.Field>
           <label>Precio</label>
           <input type="number" placeholder="Precio" value={precio} onChange={(e) => setPrecio(e.target.value)}></input>

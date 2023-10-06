@@ -1,0 +1,722 @@
+openapi: 3.0.3
+info:
+  title: Motos DB
+  description: Una simulación de un sistema de administración y gestión de la marca Ferrari
+  version: 1.0.0
+servers:
+  - url: http://localhost:7777
+tags:
+  - name: Accesorios
+  - name: Comentarios
+  - name: Especificaciones
+  - name: Eventos
+  - name: Marcas
+  - name: Motos
+  - name: TalleresDeServicio
+  - name: Ventas
+
+paths:
+  /Accesorios:
+    get:
+      tags:
+        - Accesorios
+      summary: Muestra la lista de Accesorios
+      responses:
+        200:
+          description: (OK) Lista de Accesorios obtenida con éxito
+        400:
+          $ref: "#/components/responses/BadRequest"
+        404:
+          $ref: "#/components/responses/NotFound"
+        500:
+          $ref: "#/components/responses/ServerError"
+
+    post:
+      tags:
+        - Accesorios
+      summary: Inserta la información de un nuevo accesorio
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/AccesoriosPost"
+      responses:
+        200:
+          description: (OK) La información se guardó correctamente
+        400:
+          $ref: "#/components/responses/BadRequest"
+        404:
+          $ref: "#/components/responses/NotFound"
+        500:
+          $ref: "#/components/responses/ServerError"
+
+    patch:
+      tags:
+        - Accesorios
+      summary: Actualiza la información de un accesorio especificado
+      parameters:
+        - name: idAccesorio
+          in: path
+          description: ID del accesorio a actualizar
+          required: true
+          schema:
+            type: string
+            format: objectId
+            example: 605c4d36a2cfde067c6c2660
+            minLength: 24
+            maxLength: 24
+      requestBody:
+        description: Campos a modificar
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/AccesoriosPost"
+      responses:
+        200:
+          description: (OK) La información se guardó correctamente
+        400:
+          $ref: "#/components/responses/BadRequest"
+        404:
+          $ref: "#/components/responses/NotFound"
+        500:
+          $ref: "#/components/responses/ServerError"
+
+    delete:
+      tags:
+        - Accesorios
+      summary: Elimina un accesorio de la base de datos
+      parameters:
+        - name: idAccesorio
+          in: path
+          description: ID del accesorio a eliminar
+          required: true
+          schema:
+            type: string
+            format: objectId
+            example: 605c4d36a2cfde067c6c266d
+            minLength: 24
+            maxLength: 24
+
+      responses:
+        200:
+          description: (OK) El accesorio fue borrado exitosamente
+        400:
+          $ref: "#/components/responses/BadRequest"
+        404:
+          $ref: "#/components/responses/NotFound"
+        500:
+          $ref: "#/components/responses/ServerError"
+
+  /Comentarios:
+    get:
+      tags:
+        - Comentarios
+      summary: Muestra la lista de Comentarios disponibles
+      responses:
+        200:
+          description: (OK) Lista de Comentarios obtenida con éxito
+        400:
+          $ref: "#/components/responses/BadRequest"
+        404:
+          $ref: "#/components/responses/NotFound"
+        500:
+          $ref: "#/components/responses/ServerError"
+
+    post:
+      tags:
+        - Comentarios
+      summary: Inserta la información de un nuevo comentario
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/ComentariosPost"
+      responses:
+        200:
+          description: (OK) La información se guardó correctamente
+        400:
+          $ref: "#/components/responses/BadRequest"
+        404:
+          $ref: "#/components/responses/NotFound"
+        500:
+          $ref: "#/components/responses/ServerError"
+
+    patch:
+      tags:
+        - Comentarios
+      summary: Actualiza la información de un comentario especificado
+      parameters:
+        - name: idComentario
+          in: path
+          description: ID del comentario a actualizar
+          required: true
+          schema:
+            type: string
+            format: objectId
+            example: 605c4d36a2cfde067c6c266d
+            minLength: 24
+            maxLength: 24
+      requestBody:
+        description: Campos a modificar
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/ComentariosPost"
+      responses:
+        200:
+          description: (OK) La información se guardó correctamente
+        400:
+          $ref: "#/components/responses/BadRequest"
+        404:
+          $ref: "#/components/responses/NotFound"
+        500:
+          $ref: "#/components/responses/ServerError"
+
+    delete:
+      tags:
+        - Comentarios
+      summary: Elimina un comentario de la base de datos
+      parameters:
+        - name: idComentario
+          in: path
+          description: ID del comentario a eliminar
+          required: true
+          schema:
+            type: string
+            format: objectId
+            example: 605c4d36a2cfde067c6c266d
+            minLength: 24
+            maxLength: 24
+
+      responses:
+        200:
+          description: (OK) El comentario fue borrado exitosamente
+        400:
+          $ref: "#/components/responses/BadRequest"
+        404:
+          $ref: "#/components/responses/NotFound"
+        500:
+          $ref: "#/components/responses/ServerError"
+
+  /Especificaciones:
+    get:
+      tags:
+        - Especificaciones
+      summary: Muestra la lista de Especificaciones disponibles
+      responses:
+        200:
+          description: (OK) Lista de Especificaciones obtenida con éxito
+        400:
+          $ref: "#/components/responses/BadRequest"
+        404:
+          $ref: "#/components/responses/NotFound"
+        500:
+          $ref: "#/components/responses/ServerError"
+
+    post:
+      tags:
+        - Especificaciones
+      summary: Inserta la información de una nueva especificación
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/EspecificacionesPost"
+      responses:
+        200:
+          description: (OK) La información se guardó correctamente
+        400:
+          $ref: "#/components/responses/BadRequest"
+        404:
+          $ref: "#/components/responses/NotFound"
+        500:
+          $ref: "#/components/responses/ServerError"
+
+    patch:
+      tags:
+        - Especificaciones
+      summary: Actualiza la información de una especificación especificada
+      parameters:
+        - name: idEspecificacion
+          in: path
+          description: ID de la especificación a actualizar
+          required: true
+          schema:
+            type: string
+            format: objectId
+            example: 605c4d36a2cfde067c6c266d
+            minLength: 24
+            maxLength: 24
+      requestBody:
+        description: Campos a modificar
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/EspecificacionesPost"
+      responses:
+        200:
+          description: (OK) La información se guardó correctamente
+        400:
+          $ref: "#/components/responses/BadRequest"
+        404:
+          $ref: "#/components/responses/NotFound"
+        500:
+          $ref: "#/components/responses/ServerError"
+
+    delete:
+      tags:
+        - Especificaciones
+      summary: Elimina una especificación de la base de datos
+      parameters:
+        - name: idEspecificacion
+          in: path
+          description: ID de la especificación a eliminar
+          required: true
+          schema:
+            type: string
+            format: objectId
+            example: 605c4d36a2cfde067c6c266d
+            minLength: 24
+            maxLength: 24
+
+      responses:
+        200:
+          description: (OK) La especificación fue borrada exitosamente
+        400:
+          $ref: "#/components/responses/BadRequest"
+        404:
+          $ref: "#/components/responses/NotFound"
+        500:
+          $ref: "#/components/responses/ServerError"
+
+  /Eventos:
+    get:
+      tags:
+        - Eventos
+      summary: Muestra la lista de Eventos disponibles
+      responses:
+        200:
+          description: (OK) Lista de Eventos obtenida con éxito
+        400:
+          $ref: "#/components/responses/BadRequest"
+        404:
+          $ref: "#/components/responses/NotFound"
+        500:
+          $ref: "#/components/responses/ServerError"
+
+    post:
+      tags:
+        - Eventos
+      summary: Inserta la información de un nuevo evento
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/EventosPost"
+      responses:
+        200:
+          description: (OK) La información se guardó correctamente
+        400:
+          $ref: "#/components/responses/BadRequest"
+        404:
+          $ref: "#/components/responses/NotFound"
+        500:
+          $ref: "#/components/responses/ServerError"
+
+    patch:
+      tags:
+        - Eventos
+      summary: Actualiza la información de un evento especificado
+      parameters:
+        - name: idEvento
+          in: path
+          description: ID del evento a actualizar
+          required: true
+          schema:
+            type: string
+            format: objectId
+            example: 605c4d36a2cfde067c6c266d
+            minLength: 24
+            maxLength: 24
+      requestBody:
+        description: Campos a modificar
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/EventosPost"
+      responses:
+        200:
+          description: (OK) La información se guardó correctamente
+        400:
+          $ref: "#/components/responses/BadRequest"
+        404:
+          $ref: "#/components/responses/NotFound"
+        500:
+          $ref: "#/components/responses/ServerError"
+
+    delete:
+      tags:
+        - Eventos
+      summary: Elimina un evento de la base de datos
+      parameters:
+        - name: idEvento
+          in: path
+          description: ID del evento a eliminar
+          required: true
+          schema:
+            type: string
+            format: objectId
+            example: 605c4d36a2cfde067c6c266d
+            minLength: 24
+            maxLength: 24
+
+      responses:
+        200:
+          description: (OK) El evento fue borrado exitosamente
+        400:
+          $ref: "#/components/responses/BadRequest"
+        404:
+          $ref: "#/components/responses/NotFound"
+        500:
+          $ref: "#/components/responses/ServerError"
+
+  /Marcas:
+    get:
+      tags:
+        - Marcas
+      summary: Muestra la lista de Marcas disponibles
+      responses:
+        200:
+          description: (OK) Lista de Marcas obtenida con éxito
+        400:
+          $ref: "#/components/responses/BadRequest"
+        404:
+          $ref: "#/components/responses/NotFound"
+        500:
+          $ref: "#/components/responses/ServerError"
+
+    post:
+      tags:
+        - Marcas
+      summary: Inserta la información de una nueva marca
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/MarcasPost"
+      responses:
+        200:
+          description: (OK) La información se guardó correctamente
+        400:
+          $ref: "#/components/responses/BadRequest"
+        404:
+          $ref: "#/components/responses/NotFound"
+        500:
+          $ref: "#/components/responses/ServerError"
+
+    patch:
+      tags:
+        - Marcas
+      summary: Actualiza la información de una marca especificada
+      parameters:
+        - name: idMarca
+          in: path
+          description: ID de la marca a actualizar
+          required: true
+          schema:
+            type: string
+            format: objectId
+            example: 605c4d36a2cfde067c6c266d
+            minLength: 24
+            maxLength: 24
+      requestBody:
+        description: Campos a modificar
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/MarcasPost"
+      responses:
+        200:
+          description: (OK) La información se guardó correctamente
+        400:
+          $ref: "#/components/responses/BadRequest"
+        404:
+          $ref: "#/components/responses/NotFound"
+        500:
+          $ref: "#/components/responses/ServerError"
+
+    delete:
+      tags:
+        - Marcas
+      summary: Elimina una marca de la base de datos
+      parameters:
+        - name: idMarca
+          in: path
+          description: ID de la marca a eliminar
+          required: true
+          schema:
+            type: string
+            format: objectId
+            example: 605c4d36a2cfde067c6c266d
+            minLength: 24
+            maxLength: 24
+
+      responses:
+        200:
+          description: (OK) La marca fue borrada exitosamente
+        400:
+          $ref: "#/components/responses/BadRequest"
+        404:
+          $ref: "#/components/responses/NotFound"
+        500:
+          $ref: "#/components/responses/ServerError"
+
+components:
+  responses:
+    NotFound:
+      description: (NotFound) No se encontró la información
+    BadRequest:
+      description: (BadRequest) Los datos enviados son incorrectos o faltan datos obligatorios
+    ServerError:
+      description: Error en el servidor
+
+  schemas:
+    AccesoriosPost:
+      type: object
+      properties:
+        _id:
+          type: string
+        nombre:
+          type: string
+        descripcion:
+          type: string
+        precio:
+          type: number
+        modelo_moto_compatible:
+          type: array
+          items:
+            type: object
+            properties:
+              _id:
+                type: string
+              marca:
+                type: string
+              modelo:
+                type: string
+              cilindraje:
+                type: integer
+              anio:
+                type: integer
+              precio:
+                type: number
+              tipo_motor:
+                type: string
+              descripcion:
+                type: string
+              imagenes:
+                type: array
+                items:
+                  type: string
+              comentarios:
+                type: array
+                items:
+                  type: object
+        createdAt:
+          type: string
+          format: date-time
+        updatedAt:
+          type: string
+          format: date-time
+        __v:
+          type: integer
+      required:
+        - _id
+        - nombre
+        - descripcion
+        - precio
+        - modelo_moto_compatible
+        - createdAt
+        - updatedAt
+        - __v
+      example:
+        _id: "65132382ec6a0291cb8ab723"
+        nombre: "Casco Full Face"
+        descripcion: "Casco de alto rendimiento con visera y ventilación."
+        precio: 250
+        modelo_moto_compatible:
+          - 
+            _id: "65130ee5ec6a0291cb8ab6ef"
+            marca: "Ducati"
+            modelo: "Monster 821"
+            cilindraje: 821
+            anio: 2021
+            precio: 14000
+            tipo_motor: "L-Twin"
+            descripcion: "Una moto naked deportiva con estilo italiano."
+            imagenes:
+              - "monster_821_1.jpg"
+              - "monster_821_2.jpg"
+            comentarios: []
+        createdAt: "2023-10-06T15:50:28.843+00:00"
+        updatedAt: "2023-10-06T15:50:28.843+00:00"
+        __v: 0
+
+    ComentariosPost:
+      type: object
+      properties:
+        nombre:
+          type: string
+        año:
+          type: string
+        precio:
+          type: boolean
+      required:
+        - nombre
+        - año
+        - precio
+      example:
+        nombre: "Marcus Holloway"
+        año: "Liechtenstein"
+        precio: true
+
+    EspecificacionesPost:
+      type: object
+      properties:
+        _id:
+          type: string
+        nombre:
+          type: string
+        tipo:
+          type: string
+        descripcion:
+          type: string
+        precio:
+          type: number
+        createdAt:
+          type: string
+          format: date-time
+        updatedAt:
+          type: string
+          format: date-time
+        __v:
+          type: integer
+      required:
+        - _id
+        - nombre
+        - tipo
+        - descripcion
+        - precio
+        - createdAt
+        - updatedAt
+        - __v
+      example:
+        _id: "6511cf3b9ff7d0937d40c583"
+        nombre: "Asientos deportivos de cuero"
+        tipo: "Asiento"
+        descripcion: "Asientos deportivos de cuero de lujo"
+        precio: 8000
+        createdAt: "2023-10-06T15:50:28.843+00:00"
+        updatedAt: "2023-10-06T15:50:28.843+00:00"
+        __v: 0
+
+    EventosPost:
+      type: object
+      properties:
+        _id:
+          type: string
+        fechaCompra:
+          type: string
+          format: date-time
+        proveedor:
+          type: string
+        EspecificacionesComprados:
+          type: array
+          items:
+            type: object
+            properties:
+              nombreComponente:
+                type: string
+              cantidadComprada:
+                type: integer
+              precioCompra:
+                type: number
+              _id:
+                type: string
+          example:
+            - nombreComponente: "Freno de cerámica"
+              cantidadComprada: 20
+              precioCompra: 12000
+              _id: "65202cc44035bfe799883a79"
+            - nombreComponente: "Asientos deportivos de cuero"
+              cantidadComprada: 10
+              precioCompra: 7000
+              _id: "65202cc44035bfe799883a7a"
+        createdAt:
+          type: string
+          format: date-time
+        updatedAt:
+          type: string
+          format: date-time
+        __v:
+          type: integer
+      required:
+        - _id
+        - fechaCompra
+        - proveedor
+        - EspecificacionesComprados
+        - createdAt
+        - updatedAt
+        - __v
+      example:
+        _id: "65202cc44035bfe799883a78"
+        fechaCompra: "2023-01-05T00:00:00.000+00:00"
+        proveedor: "ProveedorX"
+        EspecificacionesComprados:
+          - nombreComponente: "Freno de cerámica"
+            cantidadComprada: 20
+            precioCompra: 12000
+            _id: "65202cc44035bfe799883a79"
+          - nombreComponente: "Asientos deportivos de cuero"
+            cantidadComprada: 10
+            precioCompra: 7000
+            _id: "65202cc44035bfe799883a7a"
+        createdAt: "2023-10-06T15:50:28.843+00:00"
+        updatedAt: "2023-10-06T15:50:28.843+00:00"
+        __v: 0
+
+    MarcasPost:
+      type: object
+      properties:
+        _id:
+          type: string
+        componente:
+          type: string
+        cantidad:
+          type: integer
+        createdAt:
+          type: string
+          format: date-time
+        updatedAt:
+          type: string
+          format: date-time
+        __v:
+          type: integer
+      required:
+        - _id
+        - componente
+        - cantidad
+        - createdAt
+        - updatedAt
+        - __v
+      example:
+        _id: "6519a95e03ebd48241963b4a"
+        componente: "Motor"
+        cantidad: 100
+        createdAt: "2023-10-06T15:50:28.843+00:00"
+        updatedAt: "2023-10-06T15:50:28.843+00:00"
+        __v: 0

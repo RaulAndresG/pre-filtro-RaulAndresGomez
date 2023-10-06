@@ -1,4 +1,4 @@
-/* Estilos para el título */
+/* Estilos base */
 .Titulo {
   display: flex;
   justify-content: center;
@@ -6,19 +6,18 @@
   text-align: center;
   border-radius: 50px;
   width: 200px;
-  background-color: #c5c6c767; /* Color de fondo azul */
-  color: rgba(255, 255, 255, 0.205); /* Texto en color blanco */
+  background-color: #c5c6c767;
+  color: rgba(255, 255, 255, 0.205);
   font-size: 20px;
-  margin: 0 auto; /* Centra horizontalmente el título */
+  margin: 0 auto;
   margin-bottom: 20px;
   padding: 10px;
 }
 
-/* Estilos para el contenedor principal */
 .main {
   background-image: url('./css/1190133.jpg');
   background-repeat: no-repeat;
-  background-color: #ffffff5e;
+  background-color: #ffffff00;
   margin: 0;
   padding: 0;
   background-size: cover;
@@ -26,35 +25,32 @@
   background-attachment: fixed;
   display: flex;
   flex-direction: column;
-  align-items: center; /* Centra los elementos verticalmente */
-  min-height: 100vh; /* Establece una altura mínima del viewport */
+  align-items: center;
+  min-height: 100vh;
 }
 
-/* Estilos para la barra de navegación */
 .nav1 {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #f6fcff5d; /* Color de fondo azul */
+  background-color: #f6fcffb4;
   height: 60px;
 }
 
-/* Estilos para los botones */
 .botones {
   display: flex;
   justify-content: space-around;
   align-items: center;
-  background-color: #5a626b9d; /* Color de fondo naranja */
-  padding: 10px;
-  border-radius: 10px;
+  background-color: #5a626b9d;
+  padding: 1px;
+  border-radius: 7px;
   width: 100%;
   margin-top: 20px;
 }
 
-/* Estilos para los botones de la barra de navegación */
 .nav1 .a {
   text-decoration: none;
-  color: rgba(221, 208, 208, 0.185); /* Texto en color blanco */
+  color: rgba(221, 208, 208, 0.185);
   padding: 10px 20px;
   border-radius: 5px;
   font-size: 18px;
@@ -62,8 +58,39 @@
   transition: background-color 0.5s;
 }
 
-/* Estilos para los botones de la barra de navegación al pasar el mouse */
 .nav1 .a:hover {
-  background-color: #7a88918a; /* Color de fondo azul más oscuro */
+  background-color: #7a88918a;
 }
 
+.boto {
+  background-color: #e7973bb0;
+  color: rgb(255, 255, 255);
+  padding: 8px 12px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  box-shadow: 2px 5px 3px #00000083;
+}
+
+@media (max-width: 768px) {
+  .Titulo {
+    width: 100%; 
+  }
+
+  .nav1 {
+    height: auto; 
+  }
+
+  .nav1 .a {
+    font-size: 16px;
+  }
+
+  .botones {
+    flex-direction: column; 
+  }
+
+  .boto {
+    margin-top: 10px; 
+  
+}
+}

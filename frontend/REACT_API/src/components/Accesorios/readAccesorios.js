@@ -18,12 +18,12 @@ export default function ReadAccesorios() {
     localStorage.setItem('Nombre', data.nombre);
     localStorage.setItem('Descripcion', data.descripcion);
     localStorage.setItem('Precio', data.precio);
-/*     localStorage.setItem('ModeloMotoMarca', data.modelo_moto_compatible[0].marca);
+/*      localStorage.setItem('ModeloMotoMarca', data.modelo_moto_compatible[0].marca);
     localStorage.setItem('ModeloMotoModelo', data.modelo_moto_compatible[0].modelo);
     localStorage.setItem('ModeloMotoCilindraje', data.modelo_moto_compatible[0].cilindraje);
     localStorage.setItem('ModeloMotoAnio', data.modelo_moto_compatible[0].anio);
     localStorage.setItem('ModeloMotoTipoMotor', data.modelo_moto_compatible[0].tipo_motor);
-    localStorage.setItem('ModeloMotoDescripcion', data.modelo_moto_compatible[0].descripcion); */
+    localStorage.setItem('ModeloMotoDescripcion', data.modelo_moto_compatible[0].descripcion);  */
   };
 
   const getData = () => {
@@ -46,7 +46,7 @@ export default function ReadAccesorios() {
   return (
     <div>
   <nav className="nav">
-  <h1>Tu Título</h1>
+  <h1>Accesorios</h1>
   <img className="imagen"  />
   <a>
     <Link className="a" to="/readAccesorios">
@@ -90,43 +90,43 @@ export default function ReadAccesorios() {
   </a>
 </nav>
 
-      <Table className='Table1' singleLine>
+      <Table className='Table' singleLine>
         <Table.Header>
           <Table.Row>
-            <Table.HeaderCell className='small-header1'>Nombre</Table.HeaderCell>
-            <Table.HeaderCell className='small-header1'>Descripcion</Table.HeaderCell>
-            <Table.HeaderCell className='small-header1'>Precio</Table.HeaderCell>
-{/*             <Table.HeaderCell className='small-header1'>ModeloMotoMarca</Table.HeaderCell>
+            <Table.HeaderCell className='border-header-derecha '>Nombre</Table.HeaderCell>
+            <Table.HeaderCell className='small-header'>Descripcion</Table.HeaderCell>
+            <Table.HeaderCell className='small-header'>Precio</Table.HeaderCell>
+ {/*            <Table.HeaderCell className='small-header1'>ModeloMotoMarca</Table.HeaderCell>
             <Table.HeaderCell className='small-header1'>ModeloMotoModelo</Table.HeaderCell>
             <Table.HeaderCell className='small-header1'>ModeloMotoCilindraje</Table.HeaderCell>
             <Table.HeaderCell className='small-header1'>ModeloMotoAnio</Table.HeaderCell>
             <Table.HeaderCell className='small-header1'>ModeloMotoTipoMotor</Table.HeaderCell>
-            <Table.HeaderCell className='small-header1'>ModeloMotoDescripcion</Table.HeaderCell> */}
-            <Table.HeaderCell className='small-header1'>Actualizar</Table.HeaderCell>
-            <Table.HeaderCell className='small-header1'>Eliminar</Table.HeaderCell>
+            <Table.HeaderCell className='small-header1'>ModeloMotoDescripcion</Table.HeaderCell */}
+            <Table.HeaderCell className='small-header'>Actualizar</Table.HeaderCell>
+            <Table.HeaderCell className='border-header-izquierda'>Eliminar</Table.HeaderCell>
           </Table.Row>
         </Table.Header>
         <Table.Body>
           {APIData.map((data) => (
             <Table.Row key={data._id.$oid}>
-              <Table.Cell className='casilla1'>{data.nombre}</Table.Cell>
-              <Table.Cell className='casilla1'>{data.descripcion}</Table.Cell>
-              <Table.Cell className='casilla1'>{data.precio}</Table.Cell>
-      {/*         <Table.Cell className='casilla1'>{data.modelo_moto_compatible[0].marca}</Table.Cell>
+              <Table.Cell className='casilla'>{data.nombre}</Table.Cell>
+              <Table.Cell className='casilla'>{data.descripcion}</Table.Cell>
+              <Table.Cell className='casilla'>{data.precio}</Table.Cell>
+        {/*        <Table.Cell className='casilla1'>{data.modelo_moto_compatible[0].marca}</Table.Cell>
               <Table.Cell className='casilla1'>{data.modelo_moto_compatible[0].modelo}</Table.Cell>
               <Table.Cell className='casilla1'>{data.modelo_moto_compatible[0].cilindraje}</Table.Cell>
               <Table.Cell className='casilla1'>{data.modelo_moto_compatible[0].anio}</Table.Cell>
               <Table.Cell className='casilla1'>{data.modelo_moto_compatible[0].tipo_motor}</Table.Cell>
-              <Table.Cell className='casilla1'>{data.modelo_moto_compatible[0].descripcion}</Table.Cell> */}
+              <Table.Cell className='casilla1'>{data.modelo_moto_compatible[0].descripcion}</Table.Cell>  */}
               <Table.Cell>
                 <Link to='/updateAccesorios'>
-                  <Button className='boton1' onClick={() => setData(data)}>
+                  <Button className='boton' onClick={() => setData(data)}>
                     Update
                   </Button>
                 </Link>
               </Table.Cell>
               <Table.Cell>
-                <Button className='boton1' onClick={() => onDelete(data._id.$oid)}>
+                <Button className='boton' onClick={() => onDelete(data._id)}>
                   Eliminar
                 </Button>
               </Table.Cell>

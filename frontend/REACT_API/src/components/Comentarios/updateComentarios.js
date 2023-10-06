@@ -11,14 +11,14 @@ export default function UpdateComentarios() {
   const [usuario, setUsuario] = useState('');
   const [comentario, setComentario] = useState('');
   const [calificacion, setCalificacion] = useState(0);
-  const [modeloMoto, setModeloMoto] = useState({});
+/*   const [modeloMoto, setModeloMoto] = useState({}); */
 
   useEffect(() => {
     setID(localStorage.getItem('ID'));
     setUsuario(localStorage.getItem('Usuario'));
     setComentario(localStorage.getItem('Comentario'));
-    setCalificacion(parseInt(localStorage.getItem('Calificacion')) || 0);
-    setModeloMoto(JSON.parse(localStorage.getItem('ModeloMoto')) || {});
+    setCalificacion(parseInt(localStorage.getItem('Calificacion')));
+/*     setModeloMoto(localStorage.getItem('ModeloMoto').split(', ')); */
   }, []);
 
   const updateAPIData = () => {
@@ -26,7 +26,7 @@ export default function UpdateComentarios() {
       usuario,
       comentario,
       calificacion,
-      modelo_moto: modeloMoto,
+   /*    modelo_moto: modeloMoto, */
     }).then(() => {
       history.push('/readComentarios');
     });
@@ -47,10 +47,10 @@ export default function UpdateComentarios() {
           <label>Calificación</label>
           <input type="number" placeholder="Calificación" value={calificacion} onChange={(e) => setCalificacion(e.target.value)} />
         </Form.Field>
-        <Form.Field>
+{/*         <Form.Field>
           <label>Modelo Moto</label>
           <input placeholder="Modelo Moto" value={modeloMoto} onChange={(e) => setModeloMoto(e.target.value)} />
-        </Form.Field>
+        </Form.Field> */}
 
         <Button type="submit" onClick={updateAPIData}>ACTUALIZAR</Button>
       </Form>

@@ -1,104 +1,146 @@
-/* Estilos para la barra de navegación */
 .nav {
   display: flex;
   align-items: center;
-  justify-content: space-between; /* Modificamos esto para que los enlaces estén separados */
+  justify-content: space-between;
   height: 60px;
-  background-color: #33333341; /* Cambiamos el color a gris oscuro */
-  padding: 0 20px; /* Añadimos un espacio a los lados */
+  background-color: #332d2d80;
+  padding: 0 20px;
+  border-radius: 1rem;
 }
 
-/* Estilos para los enlaces de navegación */
 .a {
   text-decoration: none;
-  color: rgba(255, 255, 255, 0.74);
-  padding: 10px 15px; /* Reducimos el espacio interior */
+  color: rgba(255, 255, 255, 0.836);
+  padding: 10px 15px;
   border-radius: 5px;
-  font-size: 16px; /* Reducimos el tamaño de la fuente */
+  font-size: 16px;
   margin: 10px;
   transition: background-color 0.3s;
 }
 
-/* Estilos para el encabezado principal */
 h1 {
-  color: #b8481ba2; /* Cambiamos el color a gris oscuro */
+  color: #e7973bb0;
   font-size: 25px;
 }
 
-/* Estilos para los enlaces al pasar el mouse */
 .a:hover {
-  background-color: #af2f12ab; /* Cambiamos el color a rojo */
+  background-color: #e7973bb0;
 }
 
-/* Estilos para las tablas */
 .Table {
   margin: 20px auto;
   max-width: 800px;
-  background-color: #ffffffc2;
-  border-radius: 10px;
-  border: 1px solid #cccccc93; /* Añadimos un borde */
-  overflow-x: auto; /* Agregamos scroll horizontal si es necesario */
+  background-color: #ffffff7c;
+  border-radius: 65px;
+  border: 4px solid #333;
+  overflow-x: auto;
+  box-shadow: 2px 5px 30px 15px rgba(0, 0, 0, 0.925);
 }
 
-/* Estilos para celdas de la tabla */
 .casilla {
   text-align: center;
   padding: 10px;
-  border-bottom: 2px solid #0705058c; /* Agregamos una línea divisoria entre filas */
+  border-bottom: 1.6px solid #070505;
 }
 
-/* Estilos para los botones */
 .boton {
-  background-color: #c43414c7; /* Cambiamos el color a rojo */
-  color: rgba(255, 255, 255, 0.726);
-  padding: 8px 12px; /* Hacemos los botones un poco más pequeños */
+  background-color: #e7973bb0;
+  color: rgb(255, 255, 255);
+  padding: 8px 12px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  box-shadow: 1px 1px #00000083;
+}
+
+.small-header {
+  font-size: 18px;
+  background-color: #333;
+  color: white;
+  padding: 10px;
+  text-align: center;
+  border-radius: 17px;
+  margin-top: 20px;
+}
+
+.border-header-derecha {
+  font-size: 18px;
+  background-color: #333;
+  color: white;
+  padding: 10px;
+  text-align: center;
+  border-top-left-radius: 80px;
+  border-bottom-left-radius: 1px;
+  border-top-right-radius: 15px;
+  border-bottom-right-radius: 20px;
+  margin-top: 20px;
+}
+
+.border-header-izquierda {
+  font-size: 18px;
+  background-color: #333;
+  color: white;
+  padding: 10px;
+  text-align: center;
+  border-top-left-radius: 15px;
+  border-bottom-left-radius: 20px;
+  border-top-right-radius: 80px;
+  border-bottom-right-radius: 1px;
+  margin-top: 20px;
+}
+
+.create-form {
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #f2f2f2;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.create-form input {
+  width: 100%;
+  margin-bottom: 10px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.create-form button {
+  background-color: #e7973bb0;
+  color: white;
+  padding: 10px 20px;
   border: none;
   border-radius: 5px;
   cursor: pointer;
 }
 
-/* Estilos para encabezados pequeños */
-.small-header {
-  font-size: 18px; /* Reducimos el tamaño de fuente */
-  background-color: #333; /* Cambiamos el color a gris oscuro */
-  color: white;
-  padding: 10px;
-  text-align: center;
-  border-radius: 5px;
-  margin-top: 20px;
-}
-/* Estilos para el formulario create-form */
-.create-form {
-  max-width: 500px; /* Establece un ancho máximo para el formulario */
-  margin: 0 auto; /* Centra horizontalmente el formulario */
-  padding: 20px; /* Añade un espacio interno al formulario */
-  background-color: #f2f2f2; /* Cambia el fondo a un gris claro */
-  border-radius: 10px; /* Agrega bordes redondeados al formulario */
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Agrega una sombra al formulario */
-}
-
-/* Estilos para los campos de entrada dentro del formulario */
-.create-form input {
-  width: 100%; /* Establece el ancho de los campos al 100% del contenedor */
-  margin-bottom: 10px; /* Agrega espacio entre los campos */
-  padding: 10px; /* Añade espacio interno a los campos */
-  border: 1px solid #ccc; /* Agrega un borde ligero a los campos */
-  border-radius: 5px; /* Agrega bordes redondeados a los campos */
-}
-
-/* Estilos para el botón de "Crear" dentro del formulario */
-.create-form button {
-  background-color: #ff5733; /* Cambia el color de fondo a rojo */
-  color: white; /* Cambia el color del texto a blanco */
-  padding: 10px 20px; /* Ajusta el tamaño del botón */
-  border: none; /* Elimina el borde del botón */
-  border-radius: 5px; /* Agrega bordes redondeados al botón */
-  cursor: pointer;
-}
-
-/* Estilos para el botón de "Crear" al pasar el mouse */
 .create-form button:hover {
-  background-color: #ff371f; /* Cambia el color de fondo a un tono más oscuro de rojo */
+  background-color: #e7973bb0;
 }
 
-/* Estilos para otros elementos (puedes agregar más estilos aquí) */
+
+@media (max-width: 768px) {
+  .nav {
+    flex-direction: column;
+    height: auto;
+    text-align: center;
+  }
+
+  .a {
+    font-size: 14px;
+  }
+
+  .botones {
+    flex-direction: column;
+  }
+
+  .boton {
+    margin-top: 10px;
+  }
+  .Table {
+    width: 100%;
+    border-radius: 0;
+    overflow-x: scroll; 
+  }
+}

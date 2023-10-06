@@ -36,7 +36,7 @@ export default function ReadTalleresDeServicio() {
   const setData = (data) => {
     localStorage.setItem('ID', data._id.$oid);
     localStorage.setItem('Nombre', data.nombre);
-    localStorage.setItem('MarcasMotoAtienden', data.marca_moto_atienden.join(', '));
+/*     localStorage.setItem('MarcasMotoAtienden', data.marca_moto_atienden.join(', ')); */
     localStorage.setItem('Direccion', data.direccion);
     localStorage.setItem('NumeroTelefono', data.numero_telefono);
     localStorage.setItem('HorarioAtencion', data.horario_atencion);
@@ -45,7 +45,7 @@ export default function ReadTalleresDeServicio() {
   return (
     <div>
  <nav className="nav">
-  <h1>Tu Título</h1>
+  <h1>TalleresDeServicio</h1>
   <img className="imagen"  />
   <a>
     <Link className="a" to="/readAccesorios">
@@ -89,36 +89,44 @@ export default function ReadTalleresDeServicio() {
   </a>
 </nav>
 
-      <h1>Lectura de Talleres de Servicio</h1>
-      <Table singleLine>
+      <Table className="Table" singleLine>
         <Table.Header>
           <Table.Row>
-            <Table.HeaderCell>Nombre</Table.HeaderCell>
-            <Table.HeaderCell>Marcas de Moto que Atienden</Table.HeaderCell>
-            <Table.HeaderCell>Dirección</Table.HeaderCell>
-            <Table.HeaderCell>Número de Teléfono</Table.HeaderCell>
-            <Table.HeaderCell>Horario de Atención</Table.HeaderCell>
-            <Table.HeaderCell>Acciones</Table.HeaderCell>
+            <Table.HeaderCell className="border-header-derecha ">Nombre</Table.HeaderCell>
+            <Table.HeaderCell className="small-header">Marcas de Moto que Atienden</Table.HeaderCell>
+            <Table.HeaderCell className="small-header">Dirección</Table.HeaderCell>
+            <Table.HeaderCell className="small-header">Número de Teléfono</Table.HeaderCell>
+{/*             <Table.HeaderCell className="small-header">Horario de Atención</Table.HeaderCell> */}
+            <Table.HeaderCell className="small-header">Actualizar</Table.HeaderCell>
+            <Table.HeaderCell className="border-header-izquierda">Eliminar</Table.HeaderCell>
+
+
           </Table.Row>
         </Table.Header>
         <Table.Body>
           {talleresData.map((data) => (
             <Table.Row key={data._id.$oid}>
-              <Table.Cell>{data.nombre}</Table.Cell>
-              <Table.Cell>{data.marca_moto_atienden.join(', ')}</Table.Cell>
-              <Table.Cell>{data.direccion}</Table.Cell>
-              <Table.Cell>{data.numero_telefono}</Table.Cell>
-              <Table.Cell>{data.horario_atencion}</Table.Cell>
+              <Table.Cell className="casilla">{data.nombre}</Table.Cell>
+{/*               <Table.Cell className="casilla">{data.marca_moto_atienden.join(', ')}</Table.Cell> */}
+              <Table.Cell className="casilla">{data.direccion}</Table.Cell>
+              <Table.Cell className="casilla">{data.numero_telefono}</Table.Cell>
+              <Table.Cell className="casilla">{data.horario_atencion}</Table.Cell>
+              
+              
+
               <Table.Cell>
                 <Link to="/updateTalleresDeServicio">
-                  <Button color="blue" onClick={() => setData(data)}>
+                  <Button className="boton"  onClick={() => setData(data)}>
                     Actualizar
                   </Button>
                 </Link>
-                <Button color="red" onClick={() => onDelete(data._id.$oid)}>
+                </Table.Cell>
+                <Table.Cell>
+                <Button className="boton"   onClick={() => onDelete(data._id)}>
                   Eliminar
                 </Button>
               </Table.Cell>
+            
             </Table.Row>
           ))}
         </Table.Body>

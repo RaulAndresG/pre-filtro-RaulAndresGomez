@@ -57,7 +57,7 @@ export default function ReadMotos() {
   return (
     <div>
    <nav className="nav">
-  <h1>Tu Título</h1>
+  <h1>Motos</h1>
   <img className="imagen"  />
   <a>
     <Link className="a" to="/readAccesorios">
@@ -106,7 +106,7 @@ export default function ReadMotos() {
       <Table className="Table" singleLine>
         <Table.Header>
           <Table.Row>
-            <Table.HeaderCell className="small-header">Marca</Table.HeaderCell>
+            <Table.HeaderCell className="border-header-derecha ">Marca</Table.HeaderCell>
             <Table.HeaderCell className="small-header">Modelo</Table.HeaderCell>
             <Table.HeaderCell className="small-header">Cilindraje</Table.HeaderCell>
             <Table.HeaderCell className="small-header">Año</Table.HeaderCell>
@@ -114,7 +114,7 @@ export default function ReadMotos() {
             <Table.HeaderCell className="small-header">Tipo de Motor</Table.HeaderCell>
             <Table.HeaderCell className="small-header">Descripción</Table.HeaderCell>
             <Table.HeaderCell className="small-header">Actualizar</Table.HeaderCell>
-            <Table.HeaderCell className="small-header">Eliminar</Table.HeaderCell>
+            <Table.HeaderCell className="border-header-izquierda">Eliminar</Table.HeaderCell>
           </Table.Row>
         </Table.Header>
         <Table.Body>
@@ -128,7 +128,7 @@ export default function ReadMotos() {
               <Table.Cell className="casilla">{data.tipo_motor}</Table.Cell>
               <Table.Cell className="casilla">{data.descripcion}</Table.Cell>
               <Table.Cell>
-                <Link to={`/updateMotos/${data._id}`}>
+                <Link to={`/updateMotos`}>
                   <Button className="boton" onClick={() => setData(data)}>
                     Actualizar
                   </Button>

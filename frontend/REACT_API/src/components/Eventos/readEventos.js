@@ -45,7 +45,7 @@ export default function ReadEventos() {
   return (
     <div>
  <nav className="nav">
-  <h1>Tu Título</h1>
+  <h1>Eventos</h1>
   <img className="imagen"  />
   <a>
     <Link className="a" to="/readAccesorios">
@@ -93,7 +93,7 @@ export default function ReadEventos() {
       <Table className="Table" singleLine>
         <Table.Header>
           <Table.Row>
-            <Table.HeaderCell className="small-header">Nombre</Table.HeaderCell>
+            <Table.HeaderCell className="border-header-derecha ">Nombre</Table.HeaderCell>
             <Table.HeaderCell className="small-header">
               Fecha y Lugar
             </Table.HeaderCell>
@@ -102,7 +102,7 @@ export default function ReadEventos() {
               Marcas y Modelos Destacados
             </Table.HeaderCell>
             <Table.HeaderCell className="small-header">Actualizar</Table.HeaderCell>
-            <Table.HeaderCell className="small-header">Eliminar</Table.HeaderCell>
+            <Table.HeaderCell className="border-header-izquierda">Eliminar</Table.HeaderCell>
           </Table.Row>
         </Table.Header>
         <Table.Body>
@@ -114,6 +114,7 @@ export default function ReadEventos() {
               <Table.Cell className="casilla">
                 {data.marcas_modelos_destacados.join(', ')}
               </Table.Cell>
+              
               <Table.Cell>
                 <Link to="/updateEventos">
                   <Button className="boton" onClick={() => setData(data)}>

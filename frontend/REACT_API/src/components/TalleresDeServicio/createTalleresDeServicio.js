@@ -23,7 +23,7 @@ export default function CreateTalleresServicio() {
         horario_atencion: horarioAtencion,
       })
       .then(() => {
-        history.push('/readTalleresServicio');
+        history.push('/readTalleresDeServicio');
       })
       .catch((error) => {
         console.error('Error al crear el taller de servicio:', error);

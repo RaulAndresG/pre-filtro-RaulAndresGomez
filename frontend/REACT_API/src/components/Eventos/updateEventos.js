@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Button, Form, Checkbox } from 'semantic-ui-react';
+import { Button, Form } from 'semantic-ui-react';
 import axios from 'axios';
 import { useHistory } from 'react-router';
 import '../../css/nav.css';
@@ -12,7 +12,6 @@ export default function UpdateEventos() {
   const [fechaLugar, setFechaLugar] = useState('');
   const [descripcion, setDescripcion] = useState('');
   const [marcasModelosDestacados, setMarcasModelosDestacados] = useState([]);
-  const [checkbox, setCheckbox] = useState(false);
 
   useEffect(() => {
     setID(localStorage.getItem('ID'));
@@ -29,7 +28,6 @@ export default function UpdateEventos() {
         fecha_lugar: fechaLugar,
         descripcion,
         marcas_modelos_destacados: marcasModelosDestacados,
-        checkbox,
       })
       .then(() => {
         history.push('/readEventos');
@@ -74,11 +72,6 @@ export default function UpdateEventos() {
           ></input>
         </Form.Field>
         <Form.Field>
-          <Checkbox
-            label="Acepto los términos y condiciones:"
-            checked={checkbox}
-            onChange={() => setCheckbox(!checkbox)}
-          ></Checkbox>
         </Form.Field>
         <Button type="submit" onClick={updateAPIData}>
           ACTUALIZAR

@@ -1,273 +1,110 @@
-eres un ingeniero en software y yo soy tu client, este es mi backend import Componente from "../Models/Accesorios.js";
 
-const postAccesorios = async (req, res) => {
-  const { nombre, descripcion, precio, marca } = req.body;
-  const accesorio = new Accesorios({ nombre, descripcion, precio, marca });
-
-  // Guardar en MONGODB
-  await accesorio.save();
-
-  res.json({
-    "message": "Accesorios creado exitosamente",
-    accesorio
-  });
+Accesorios {
+	id: int pk
+	nombre: varchar
+	descripcion: varchar
+	precio: decimal
+	modelo_moto_compatible int > modelo_moto_compatible.id:
 }
 
-const putAccesorios = async (req, res) => {
-  const { id } = req.params;
-
-  const { _id, ...resto } = req.body;
-
-  try {
-    const accesorio = await Accesorios.findByIdAndUpdate(id, resto, { new: true });
-
-    if (!accesorio) {
-      return res.status(404).json({ message: "Accesorios no encontrado" });
-    }
-
-    res.json({
-      msg: "Accesorios actualizado exitosamente",
-      accesorio
-    });
-  } catch (error) {
-    res.status(500).json({ error: "Error en putAccesorios" });
-  }
+modelo_moto_compatible {
+	id: int pk
+	marca: varchar
+	modelo: varchar
+	cilindraje: int
+	anio: int
+	precio: decimal
+	tipo_motor: varchar
+	descripcion: varchar
+	imagenes: varchar
+	comentarios: varchar
 }
 
-const deleteAccesorios = async (req, res) => {
-  const { id } = req.params;
-
-  try {
-    const remove = await Accesorios.findByIdAndRemove(id);
-
-    if (!remove) {
-      return res.status(404).json({ message: "Accesorios no encontrado" });
-    }
-
-    res.json({ message: "Accesorios borrado correctamente" });
-  } catch (error) {
-    res.status(500).json({ error: "Error en deleteAccesorios" });
-  }
+Comentarios {
+	id: int pk
+	modelo_moto int > modelo_moto:.id:
+	usuario: varchar
+	comentario: varchar
+	calificacion: int
 }
 
-const obtenerTodos = async (req, res) => {
-  try {
-    const accesorios = await Accesorios.find().limit(100); 
-    res.json(accesorios);
-  } catch (error) {
-console.error('Error en obtenerTodos:', error);
-res.status(500).json({ error: 'Error en obtenerTodos' });
-  }
+modelo_moto: {
+	id: int pk
+	marca: varchar
+	modelo: varchar
+	cilindraje: int
+	anio: int
+	precio: decimal
+	tipo_motor: varchar
+	descripcion: varchar
+	imagenes: varchar
+	comentarios: varchar
 }
 
-
-
-esta es mi coleccion Accesorios: 
-
-
-{
-  "_id": {
-    "$oid": "65132382ec6a0291cb8ab723"
-  },
-  "nombre": "Casco Full Face",
-  "descripcion": "Casco de alto rendimiento con visera y ventilación.",
-  "precio": 250,
-  "modelo_moto_compatible": [
-    null,
-    {
-      "_id": {
-        "$oid": "65130ee5ec6a0291cb8ab6ef"
-      },
-      "marca": "Ducati",
-      "modelo": "Monster 821",
-      "cilindraje": 821,
-      "anio": 2021,
-      "precio": 14000,
-      "tipo_motor": "L-Twin",
-      "descripcion": "Una moto naked deportiva con estilo italiano.",
-      "imagenes": [
-        "monster_821_1.jpg",
-        "monster_821_2.jpg"
-      ],
-      "comentarios": []
-    }
-  ]
+Especificaciones {
+	id: int pk
+	modelo_moto int > modelo_moto:.id:
+	potencia: int
+	torque: int
+	peso_seco: int
+	altura_asiento: int
+	tipo_chasis: varchar
+	suspension_delanter: varchar
+	suspension_trasera: varchar
+	frenos_delanteros: varchar
+	frenos_traseros: varchar
+	neumaticos: varchar
+	capacidad_tanque: decimal
+	aceleracion_0_100: int
 }
-8000
 
-consumelo en cards que permitan buscar por id, eliminar, editar y agregar usando react y axios dame todo el codigo que haga que esto funcione de la siguiente forma reemplaza las tablas por cards  dame el codigo de toda la logica para las funciones de crud(get, patch, delete, post)y funcionalidad todo en un mismo archivo todo esto que se conecte con la DB: import React, { useEffect, useState } from 'react';
-import axios from 'axios';
-import { Card, Button, Form } from 'semantic-ui-react';
-
-export default function Clientes() {
-  const [clientes, setClientes] = useState([]);
-  const [formData, setFormData] = useState({
-    nombre: '',
-    correo: '',
-    telefono: '',
-    cochesComprados: '',
-  });
-  const [editingCliente, setEditingCliente] = useState(null);
-
-  const { nombre, correo, telefono, cochesComprados } = formData;
-
-  useEffect(() => {
-    fetchData();
-  }, []);
-
-  const fetchData = async () => {
-    try {
-      const response = await axios.get('http://localhost:3000/clientes');
-      setClientes(response.data);
-    } catch (error) {
-      console.error('Error al obtener clientes', error);
-    }
-  };
-
-  const handleInputChange = (e) => {
-    const { name, value } = e.target;
-    setFormData({ ...formData, [name]: value });
-  };
-
-  const handleAddCliente = async () => {
-    try {
-      if (editingCliente) {
-      
-        await axios.patch(`http://localhost:3000/clientes/${editingCliente._id}`, formData);
-      } else {
-    
-        await axios.post('http://localhost:3000/clientes', formData);
-      }
-      fetchData();
-      setFormData({
-        nombre: '',
-        correo: '',
-        telefono: '',
-        cochesComprados: '',
-      });
-      setEditingCliente(null);
-    } catch (error) {
-      console.error('Error al agregar/actualizar cliente', error);
-    }
-  };
-
-  const handleDeleteCliente = async (id) => {
-    try {
-      await axios.delete(`http://localhost:3000/clientes/${id}`);
-      fetchData();
-    } catch (error) {
-      console.error('Error al eliminar cliente', error);
-    }
-  };
-
-
-  const handleEditCliente = (id) => {
-    const clienteToEdit = clientes.find((cliente) => cliente._id === id);
-    if (clienteToEdit) {
-      setEditingCliente(clienteToEdit);
-      setFormData({
-        nombre: clienteToEdit.nombre,
-        correo: clienteToEdit.correo,
-        telefono: clienteToEdit.telefono,
-        cochesComprados: clienteToEdit.cochesComprados.join(', '),
-      });
-    }
-  };
-
-  return (
-    <div>
-      <h1>Clientes</h1>
-      <Form>
-        <Form.Field>
-          <label>Nombre</label>
-          <input
-            type="text"
-            name="nombre"
-            value={nombre}
-            onChange={handleInputChange}
-          />
-        </Form.Field>
-        <Form.Field>
-          <label>Correo</label>
-          <input
-            type="text"
-            name="correo"
-            value={correo}
-            onChange={handleInputChange}
-          />
-        </Form.Field>
-        <Form.Field>
-          <label>Teléfono</label>
-          <input
-            type="text"
-            name="telefono"
-            value={telefono}
-            onChange={handleInputChange}
-          />
-        </Form.Field>
-        <Form.Field>
-          <label>Coches Comprados</label>
-          <input
-            type="text"
-            name="cochesComprados"
-            value={cochesComprados}
-            onChange={handleInputChange}
-          />
-        </Form.Field>
-        <Button onClick={handleAddCliente}>
-          {editingCliente ? 'Actualizar Cliente' : 'Agregar Cliente'}
-        </Button>
-      </Form>
-
-     {/*  <div>
-        {searchResult && (
-          <Card>
-            <Card.Content>
-              <Card.Header>{searchResult.nombre}</Card.Header>
-              <Card.Meta>{searchResult.correo}</Card.Meta>
-              <Card.Description>
-                Teléfono: {searchResult.telefono}
-                <br />
-                Coches Comprados: {searchResult.cochesComprados.join(', ')}
-              </Card.Description>
-            </Card.Content>
-          </Card>
-        )}
-      </div> */}
-
-      <div className="card-container">
-        {clientes.map((cliente) => (
-          <Card key={cliente._id}>
-            <Card.Content>
-              <Card.Header>{cliente.nombre}</Card.Header>
-              <Card.Meta>{cliente.correo}</Card.Meta>
-              <Card.Description>
-                Teléfono: {cliente.telefono}
-                <br />
-                Coches Comprados: {cliente.cochesComprados.join(', ')}
-              </Card.Description>
-            </Card.Content>
-            <Card.Content extra>
-              <div className="ui two buttons">
-                <Button
-                  basic
-                  color="green"
-                  onClick={() => handleEditCliente(cliente._id)}
-                >
-                  Editar
-                </Button>
-                <Button
-                  basic
-                  color="red"
-                  onClick={() => handleDeleteCliente(cliente._id)}
-                >
-                  Eliminar
-                </Button>
-              </div>
-            </Card.Content>
-          </Card>
-        ))}
-      </div>
-    </div>
-  );
+Eventos {
+	id: int pk
+	nombre: varchar
+	fecha_lugar: varchar
+	descripcion: varchar
+	marcas_modelos_destacados:
+	varchar,
+	varchar
 }
+
+Motos {
+	id: int pk
+	marca: varchar
+	modelo: varchar
+	cilindraje: int
+	anio: int
+	preciodecimal
+	tipo_motor: varchar
+	descripcion:varchar
+	comentarios: varchar
+	imagenes: varchar
+}
+
+Marcas {
+	id: int pk
+	nombre:varchar
+	pais_origen:varchar
+	anio_fundacion: int
+	sitio_web: varchar
+	logotipo:varchar
+}
+
+TalleresDeServicio {
+	id: int pk
+	nombre: varchar
+	marca_moto_atienden:
+	varchar,
+	varchar
+	direccion: varchar
+	numero_telefono": decimal
+	horario_atencion: varchar
+}
+
+Ventas {
+	modelo_moto: int > modelo_moto:.id:
+	anio_venta: int
+	cantidad_vendida: int
+	precio_promedio_venta: decimal
+}
+

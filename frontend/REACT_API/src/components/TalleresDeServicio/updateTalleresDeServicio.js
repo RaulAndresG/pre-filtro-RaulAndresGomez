@@ -9,7 +9,7 @@ export default function UpdateTalleresServicio() {
   let history = useHistory();
   const [_id, setID] = useState(null);
   const [nombre, setNombre] = useState('');
-  const [marcaMotoAtienden, setMarcaMotoAtienden] = useState('');
+/*   const [marcaMotoAtienden, setMarcaMotoAtienden] = useState(''); */
   const [direccion, setDireccion] = useState('');
   const [numeroTelefono, setNumeroTelefono] = useState('');
   const [horarioAtencion, setHorarioAtencion] = useState('');
@@ -17,7 +17,7 @@ export default function UpdateTalleresServicio() {
   useEffect(() => {
     setID(localStorage.getItem('ID'));
     setNombre(localStorage.getItem('Nombre'));
-    setMarcaMotoAtienden(localStorage.getItem('MarcaMotoAtienden'));
+/*     setMarcaMotoAtienden(localStorage.getItem('MarcaMotoAtienden')); */
     setDireccion(localStorage.getItem('Direccion'));
     setNumeroTelefono(localStorage.getItem('NumeroTelefono'));
     setHorarioAtencion(localStorage.getItem('HorarioAtencion'));
@@ -27,13 +27,13 @@ export default function UpdateTalleresServicio() {
     axios
       .put(`http://localhost:7777/api/TalleresDeServicio/${_id}`, {
         nombre,
-        marca_moto_atienden: marcaMotoAtienden.split(',').map((marca) => marca.trim()),
+  /*       marca_moto_atienden: marcaMotoAtienden.split().map((marca) => marca.trim()), */
         direccion,
         numero_telefono: numeroTelefono,
         horario_atencion: horarioAtencion,
       })
       .then(() => {
-        history.push('/readTalleresServicio');
+        history.push('/readTalleresDeServicio');
       });
   };
 
@@ -48,14 +48,14 @@ export default function UpdateTalleresServicio() {
             onChange={(e) => setNombre(e.target.value)}
           ></input>
         </Form.Field>
-        <Form.Field>
+  {/*       <Form.Field>
           <label>Marca de motos que atienden (separadas por comas)</label>
           <input
             placeholder="Marca de motos que atienden"
             value={marcaMotoAtienden}
             onChange={(e) => setMarcaMotoAtienden(e.target.value)}
           ></input>
-        </Form.Field>
+        </Form.Field> */}
         <Form.Field>
           <label>Dirección</label>
           <input
